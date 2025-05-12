@@ -1,101 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="860.0" prefWidth="1535.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.java.controlador.ControladorMateriaPrima">
+<AnchorPane fx:id="root" prefHeight="860.0" prefWidth="1535.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ControladorMateriaPrima">
    <children>
-      <Pane layoutX="14.0" layoutY="62.0" prefHeight="781.0" prefWidth="1501.0" style="-fx-background-color: F9E9D0; -fx-border-color: E5A743; -fx-border-width: 2; -fx-border-radius: 0; -fx-background-radius: 10 10 0 0;">
+      <Pane layoutX="14.0" layoutY="62.0" prefHeight="781.0" prefWidth="1501.0" styleClass="pane-principal">
          <children>
-            <TextField layoutX="14.0" layoutY="17.0" prefHeight="39.0" prefWidth="851.0" promptText="🔍 Nombre de la materia prima" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 100; -fx-background-radius: 100;">
+            <TextField layoutX="14.0" layoutY="17.0" prefHeight="39.0" prefWidth="851.0" promptText="🔍 Nombre de la materia prima" styleClass="textfield-busqueda">
                <font>
                   <Font size="16.0" />
                </font>
             </TextField>
-            <TableView layoutX="14.0" layoutY="71.0" prefHeight="695.0" prefWidth="1469.0" style="-fx-background-color: white; -fx-border-color: E5A743; -fx-border-width: 2; -fx-padding: 0;">
+            <TableView fx:id="tablaMateriasPrimas" layoutX="14.0" layoutY="71.0" prefHeight="695.0" prefWidth="1469.0" styleClass="tabla-materias">
               <columns>
-                <TableColumn id="id" prefWidth="122.0" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" text="ID" />
-                  <TableColumn id="nombre" prefWidth="122.0" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" text="Nombre" />
-                  <TableColumn id="proveedor" prefWidth="122.0" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" text="Proveedor" />
-                  <TableColumn id="precio" prefWidth="122.0" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" text="Precio" />
-                  <TableColumn id="kcal" prefWidth="122.0" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" text="Kcal" />
-                  <TableColumn id="hidratos" prefWidth="122.0" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" text="Hidratos" />
-                  <TableColumn id="azucares" prefWidth="122.0" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" text="Azúcares" />
-                  <TableColumn id="grasas" prefWidth="122.0" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" text="Grasas" />
-                  <TableColumn id="saturadas" prefWidth="122.0" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" text="Saturadas" />
-                  <TableColumn prefWidth="122.0" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" styleClass="proteinas" text="Proteínas" />
-                  <TableColumn prefWidth="122.0" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" styleClass="sal" text="Sal" />
-                  <TableColumn prefWidth="123.0" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" styleClass="fibra" text="Fibra" />
+                  <TableColumn fx:id="colId" prefWidth="122.0" text="ID" />
+                  <TableColumn fx:id="colNombre" prefWidth="122.0" text="Nombre" />
+                  <TableColumn fx:id="colProveedor" prefWidth="122.0" text="Proveedor" />
+                  <TableColumn fx:id="colPrecio" prefWidth="122.0" text="Precio" />
+                  <TableColumn fx:id="colKcal" prefWidth="122.0" text="Kcal" />
+                  <TableColumn fx:id="colHidratos" prefWidth="122.0" text="Hidratos" />
+                  <TableColumn fx:id="colAzucares" prefWidth="122.0" text="Azúcares" />
+                  <TableColumn fx:id="colGrasas" prefWidth="122.0" text="Grasas" />
+                  <TableColumn fx:id="colSaturadas" prefWidth="122.0" text="Saturadas" />
+                  <TableColumn fx:id="colProteinas" prefWidth="122.0" text="Proteínas" />
+                  <TableColumn fx:id="colSal" prefWidth="122.0" text="Sal" />
+                  <TableColumn fx:id="colFibra" prefWidth="123.0" text="Fibra" />
               </columns>
             </TableView>
-            <Button layoutX="876.0" layoutY="19.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="188.0" style="-fx-border-color: E5A743; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: F2D3A1;" text="Agregar Materia Prima">
+            <Button layoutX="876.0" layoutY="19.0" prefHeight="34.0" prefWidth="188.0" onMouseClicked="#formularioAgg" styleClass="boton-principal" text="Agregar Materia Prima">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="1074.0" layoutY="19.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="200.0" style="-fx-border-color: E5A743; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: F2D3A1;" text="Modificar Materia Prima">
+            <Button layoutX="1074.0" layoutY="19.0" prefHeight="34.0" prefWidth="200.0" styleClass="boton-principal" text="Modificar Materia Prima">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="1283.0" layoutY="19.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="200.0" style="-fx-border-color: E5A743; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: F2D3A1;" text="Eliminar Materia Prima">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-         </children></Pane>
-      <Pane layoutX="68.0" layoutY="12.0" prefHeight="52.0" prefWidth="200.0" style="-fx-background-color: F9E9D0; -fx-border-color: E5A743; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
-         <children>
-            <Button layoutX="11.0" layoutY="11.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="178.0" style="-fx-border-color: E5A743; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: F2D3A1;" text="Materias Primas">
+            <Button layoutX="1283.0" layoutY="19.0" prefHeight="34.0" prefWidth="200.0" styleClass="boton-principal" text="Eliminar Materia Prima">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <Pane layoutX="272.0" layoutY="12.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: F1F1F1; -fx-border-color: black; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+      <Pane layoutX="68.0" layoutY="12.0" prefHeight="52.0" prefWidth="200.0" styleClass="pestana-activa">
          <children>
-            <Button layoutX="11.0" layoutY="11.0" mnemonicParsing="false" onMouseClicked="#Productos" prefHeight="34.0" prefWidth="178.0" style="-fx-border-color: black; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: white;" text="Productos">
+            <Button layoutX="11.0" layoutY="11.0" prefHeight="34.0" prefWidth="178.0" styleClass="boton-principal" text="Materias Primas">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <Pane layoutX="1466.0" layoutY="13.0" prefHeight="52.0" prefWidth="49.0" style="-fx-background-color: F9E9D0; -fx-border-color: E5A743; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+      <Pane layoutX="272.0" layoutY="12.0" prefHeight="50.0" prefWidth="200.0" styleClass="pestana-inactiva">
+         <children>
+            <Button layoutX="11.0" layoutY="11.0" onMouseClicked="#Productos" prefHeight="34.0" prefWidth="178.0" styleClass="boton-pestana" text="Productos">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="1466.0" layoutY="13.0" prefHeight="52.0" prefWidth="49.0" styleClass="pestana-activa">
          <children>
             <ImageView fitHeight="50.0" fitWidth="40.0" layoutX="5.0" layoutY="6.0" onMouseClicked="#CerrarApp" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/EQUIS.png" />
                </image>
             </ImageView>
-         </children></Pane>
-      <Pane layoutX="476.0" layoutY="12.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: F1F1F1; -fx-border-color: black; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+         </children>
+      </Pane>
+      <Pane layoutX="476.0" layoutY="12.0" prefHeight="50.0" prefWidth="200.0" styleClass="pestana-inactiva">
          <children>
-            <Button layoutX="11.0" layoutY="11.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="178.0" style="-fx-border-color: black; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: white;" text="Etiquetado">
+            <Button layoutX="11.0" layoutY="11.0" prefHeight="34.0" prefWidth="178.0" styleClass="boton-pestana" text="Etiquetado">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <Pane layoutX="680.0" layoutY="12.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: F1F1F1; -fx-border-color: black; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+      <Pane layoutX="680.0" layoutY="12.0" prefHeight="50.0" prefWidth="200.0" styleClass="pestana-inactiva">
          <children>
-            <Button layoutX="11.0" layoutY="11.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="178.0" style="-fx-border-color: black; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: white;" text="Ficha Técnica">
+            <Button layoutX="11.0" layoutY="11.0" prefHeight="34.0" prefWidth="178.0" styleClass="boton-pestana" text="Ficha Técnica">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <Pane layoutX="1412.0" layoutY="13.0" prefHeight="52.0" prefWidth="49.0" style="-fx-background-color: F9E9D0; -fx-border-color: E5A743; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+      <Pane layoutX="1412.0" layoutY="13.0" prefHeight="52.0" prefWidth="49.0" styleClass="pestana-activa">
          <children>
             <ImageView fitHeight="45.0" fitWidth="40.0" layoutX="8.0" layoutY="4.0" onMouseClicked="#CerrarSesion" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -104,7 +112,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="14.0" layoutY="12.0" prefHeight="52.0" prefWidth="49.0" style="-fx-background-color: F9E9D0; -fx-border-color: E5A743; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+      <Pane layoutX="14.0" layoutY="12.0" prefHeight="52.0" prefWidth="49.0" styleClass="pestana-activa">
          <children>
             <ImageView fitHeight="43.0" fitWidth="33.0" layoutX="8.0" layoutY="7.0" onMouseClicked="#CerrarSesion" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -113,5 +121,64 @@
             </ImageView>
          </children>
       </Pane>
+      <GridPane fx:id="formAggMatPrim" layoutX="709.0" layoutY="130.0" style="-fx-background-color: F9E9D0; -fx-border-color: E5A743; -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;" visible="false">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="25.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="25.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="25.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="25.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="35.0" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Agregar Materia Prima" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="150.71240234375" GridPane.columnIndex="3">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField promptText="Sal" style="-fx-border-color: E5A743; -fx-border-radius: 100; -fx-border-width: 1.5; -fx-background-radius: 100;" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Proveedor" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ChoiceBox fx:id="proveedores" prefWidth="150.0" style="-fx-border-color: E5A743; -fx-border-radius: 100; -fx-border-width: 1.5; -fx-background-radius: 100; -fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Precio" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField promptText="Proteínas" style="-fx-border-color: E5A743; -fx-border-radius: 100; -fx-border-width: 1.5; -fx-background-radius: 100;" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <TextField promptText="Saturadas" style="-fx-border-color: E5A743; -fx-border-radius: 100; -fx-border-width: 1.5; -fx-background-radius: 100;" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kcal" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField promptText="Grasas" style="-fx-border-color: E5A743; -fx-border-radius: 100; -fx-border-width: 1.5; -fx-background-radius: 100;" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hidatos" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField promptText="Azúcares" style="-fx-border-color: E5A743; -fx-border-radius: 100; -fx-border-width: 1.5; -fx-background-radius: 100;" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Azúcares" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <TextField promptText="Hidratos" style="-fx-border-color: E5A743; -fx-border-radius: 100; -fx-border-width: 1.5; -fx-background-radius: 100;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Grasas" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <TextField promptText="Kcal" style="-fx-border-color: E5A743; -fx-border-radius: 100; -fx-border-width: 1.5; -fx-background-radius: 100;" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Saturadas" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+            <TextField promptText="Precio" style="-fx-border-color: E5A743; -fx-border-radius: 100; -fx-border-width: 1.5; -fx-background-radius: 100;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Proteínas" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <TextField promptText="Fibra" style="-fx-border-color: E5A743; -fx-border-radius: 100; -fx-border-width: 1.5; -fx-background-radius: 100;" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sal" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <TextField promptText="Nombre" style="-fx-border-color: E5A743; -fx-border-radius: 100; -fx-border-width: 1.5; -fx-background-radius: 100;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fibra" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" onMouseClicked="#Cerrarformularios" styleClass="boton-encuesta" text="Cancelar" GridPane.columnIndex="5" GridPane.rowIndex="10" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" styleClass="boton-encuesta" text="Aceptar" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="10" />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </GridPane>
    </children>
 </AnchorPane>

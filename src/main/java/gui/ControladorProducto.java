@@ -1,8 +1,11 @@
-package com.java.controlador;
+package gui;
+
+import org.springframework.stereotype.Component;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 
+@Component
 public class ControladorProducto {
 	@FXML
 	private void CerrarApp() {
@@ -11,11 +14,11 @@ public class ControladorProducto {
 	
 	@FXML
 	private void CerrarSesion() throws Exception {
-		Main.setRoot("Inicio");
+		JavaFxApp.setRoot("Inicio");
 	}
 	
 	@FXML
 	private void MateriaPrima() throws Exception {
-		Main.setRoot("materiaprima");
+		JavaFxApp.setRoot("materiaprima");
 	}
 }

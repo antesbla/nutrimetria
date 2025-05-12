@@ -1,0 +1,97 @@
+/* Pane principal */
+.pane-principal {
+    -fx-background-color: #F9E9D0;
+    -fx-border-color: #E5A743;
+    -fx-border-width: 2;
+    -fx-border-radius: 0;
+    -fx-background-radius: 10 10 0 0;
+}
+
+/* TextField búsqueda */
+.textfield-busqueda {
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-border-radius: 100;
+    -fx-background-radius: 100;
+    -fx-font-size: 16px;
+}
+
+/* Botones principales */
+.boton-principal {
+    -fx-border-color: #E5A743;
+    -fx-border-radius: 7;
+    -fx-background-radius: 8;
+    -fx-border-width: 0 0 2 0;
+    -fx-background-color: #F2D3A1;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.boton-encuesta {
+    -fx-border-color: #E5A743;
+    -fx-border-radius: 7;
+    -fx-background-radius: 8;
+    -fx-border-width: 0 0 2 0;
+    -fx-background-color: #F2D3A1;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+/* Tabla y columnas */
+/* Tabla en general */
+.tabla-materias {
+    -fx-background-color: white;
+    -fx-border-color: #E5A743;
+    -fx-border-width: 2;
+    -fx-padding: 0;
+}
+
+/* Fondo de la cabecera de columnas */
+.table-view .column-header-background {
+    -fx-background-color: #F2D3A1;
+}
+
+/* Texto de la cabecera */
+.table-view .column-header .label {
+    -fx-text-fill: black;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+/* Fondo de filas y celdas */
+.table-row-cell {
+    -fx-background-color: white;
+}
+
+.table-cell {
+    -fx-text-fill: black;
+}
+
+
+/* Pestañas del menú */
+.pestana-activa {
+    -fx-background-color: #F9E9D0;
+    -fx-border-color: #E5A743;
+    -fx-border-width: 2 2 0 2;
+    -fx-border-radius: 10 10 0 0;
+    -fx-background-radius: 10 10 0 0;
+}
+
+.pestana-inactiva {
+    -fx-background-color: #F1F1F1;
+    -fx-border-color: black;
+    -fx-border-width: 2 2 0 2;
+    -fx-border-radius: 10 10 0 0;
+    -fx-background-radius: 10 10 0 0;
+}
+
+.boton-pestana {
+    -fx-border-color: black;
+    -fx-border-radius: 7;
+    -fx-background-radius: 8;
+    -fx-border-width: 0 0 2 0;
+    -fx-background-color: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}

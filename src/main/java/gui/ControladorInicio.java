@@ -1,13 +1,15 @@
-package com.java.controlador;
+package gui;
+
+import org.springframework.stereotype.Component;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 
-
+@Component
 public class ControladorInicio {
 	@FXML
 	private void CambiarVentana() throws Exception {
-		Main.setRoot("materiaprima");
+		JavaFxApp.setRoot("materiaprima");
 	}
 	
 	@FXML
