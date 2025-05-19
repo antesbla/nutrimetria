@@ -1,5 +1,6 @@
 package gui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -15,7 +16,11 @@ import com.java.service.impl.ProveedorServiceImpl;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -23,6 +28,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 @Component
 public class ControladorMateriaPrima implements Initializable{
@@ -92,6 +99,36 @@ public class ControladorMateriaPrima implements Initializable{
 		tablaMateriasPrimas.setItems(FXCollections.observableArrayList(datos));
 	}
 	
+	/*@FXML
+	private void AgregarMateriaPrima() {
+		String nombre = FAGnombre.getText();
+        String precio = FAGprecio.getText();
+        String kcal = FAGkcal.getText();
+        String hidratos = FAGhidratos.getText();
+        String azucares = FAGazucares.getText();
+        String grasas = FAGgrasas.getText();
+        String saturadas = FAGsaturadas.getText();
+        String proteinas = FAGproteinas.getText();
+        String sal = FAGsal.getText();
+        String fibra = FAGfibra.getText();
+	}*/
+	
+	@FXML
+	private void eliminarMateriaPrima() {
+		MateriasProveedorRelProvDTO m = this.tablaMateriasPrimas.getSelectionModel().getSelectedItem();
+		if (m == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("Debes seleccionar una materia prima"); 
+            alert.showAndWait();
+		}else{
+			int id = m.getId();
+			servicioMateriasPrimas.deleteById(id);
+			rellenarTabla();
+		}
+	}
+	
 	@FXML
 	private void CerrarApp() {
 		Platform.exit();
@@ -108,8 +145,17 @@ public class ControladorMateriaPrima implements Initializable{
 	}
 	
 	@FXML
-	private void formularioAgg() {
-		formAggMatPrim.setVisible(true);
+	private void formularioAgg() throws IOException {
+		/*//formAggMatPrim.setVisible(true);*/
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vista/FormAggMatPrim.fxml"));
+		loader.setControllerFactory(JavaFxApp::getBean); // usa el contexto de Spring
+		Parent root = loader.load();
+		
+		Stage stage = new Stage(); // ✅ aquí sí creas el Stage
+		stage.setScene(new Scene(root));
+		stage.setTitle("Agregar nueva materia prima");
+		stage.initModality(Modality.APPLICATION_MODAL); // opcional: para que sea modal
+		stage.show();
 	}
 	
 	@FXML

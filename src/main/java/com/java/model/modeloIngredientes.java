@@ -21,5 +21,36 @@ public class modeloIngredientes {
 	private String nombre;
 	
 	@Column(name = "porcentaje")
-	private double porcentaje;
+	private Double porcentaje;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public Double getPorcentaje() {
+		return porcentaje;
+	}
+
+	public void setPorcentaje(Double porcentaje) {
+		this.porcentaje = porcentaje;
+	}
+
+	@Override
+	public String toString() {
+		return nombre;
+	}
+	
+	
 }

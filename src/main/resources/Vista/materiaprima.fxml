@@ -41,7 +41,7 @@
                   <TableColumn fx:id="colFibra" prefWidth="123.0" text="Fibra" />
               </columns>
             </TableView>
-            <Button layoutX="876.0" layoutY="19.0" prefHeight="34.0" prefWidth="188.0" onMouseClicked="#formularioAgg" styleClass="boton-principal" text="Agregar Materia Prima">
+            <Button layoutX="876.0" layoutY="19.0" onMouseClicked="#formularioAgg" prefHeight="34.0" prefWidth="188.0" styleClass="boton-principal" text="Agregar Materia Prima">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -51,7 +51,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="1283.0" layoutY="19.0" prefHeight="34.0" prefWidth="200.0" styleClass="boton-principal" text="Eliminar Materia Prima">
+            <Button layoutX="1283.0" layoutY="19.0" onMouseClicked="#eliminarMateriaPrima" prefHeight="34.0" prefWidth="200.0" styleClass="boton-principal" text="Eliminar Materia Prima">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -173,7 +173,7 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sal" GridPane.columnIndex="5" GridPane.rowIndex="3" />
             <TextField promptText="Nombre" style="-fx-border-color: E5A743; -fx-border-radius: 100; -fx-border-width: 1.5; -fx-background-radius: 100;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fibra" GridPane.columnIndex="5" GridPane.rowIndex="5" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" onMouseClicked="#Cerrarformularios" styleClass="boton-encuesta" text="Cancelar" GridPane.columnIndex="5" GridPane.rowIndex="10" />
+            <Button mnemonicParsing="false" onMouseClicked="#Cerrarformularios" prefHeight="25.0" prefWidth="70.0" styleClass="boton-encuesta" text="Cancelar" GridPane.columnIndex="5" GridPane.rowIndex="10" />
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" styleClass="boton-encuesta" text="Aceptar" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="10" />
          </children>
          <opaqueInsets>

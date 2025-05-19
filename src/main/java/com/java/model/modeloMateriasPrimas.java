@@ -48,4 +48,9 @@ public class modeloMateriasPrimas {
 	public void setUnidad_medida(String unidad_medida) {
 		this.unidad_medida = unidad_medida;
 	}
+	
+	@Override
+	public String toString() {
+		return nombre;
+	}
 }

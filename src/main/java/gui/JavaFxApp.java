@@ -40,7 +40,7 @@ public class JavaFxApp extends Application {
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader loader = new FXMLLoader(JavaFxApp.class.getResource("/Vista/" + fxml + ".fxml"));
-        loader.setControllerFactory(SpringContext::getBean);
+        loader.setControllerFactory(context::getBean); // ✅ ya no da error
         return loader.load();
     }
 
@@ -52,4 +52,9 @@ public class JavaFxApp extends Application {
     public void stop() {
         context.close();
     }
+    
+    public static <T> T getBean(Class<T> clazz) {
+        return context.getBean(clazz);
+    }
+
 }

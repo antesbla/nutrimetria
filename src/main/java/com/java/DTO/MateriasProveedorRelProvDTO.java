@@ -13,11 +13,13 @@ public class MateriasProveedorRelProvDTO {
 	private double proteinas;
 	private double sal;
 	private double fibra;
+	private String unidadMedida;
 	
-	public MateriasProveedorRelProvDTO(String nombre, String proveedor, double precio, double kcal,
-			double hidratos, double azucares, double grasas, double saturadas, double proteinas, double sal,
-			double fibra) {
+public MateriasProveedorRelProvDTO(int id, String nombre, String proveedor, double precio, double kcal,
+		double hidratos, double azucares, double grasas, double saturadas, double proteinas, double sal,
+		double fibra, String unidadMedida) {
 		super();
+		this.id = id;
 		this.nombre = nombre;
 		this.proveedor = proveedor;
 		this.precio = precio;
@@ -29,6 +31,7 @@ public class MateriasProveedorRelProvDTO {
 		this.proteinas = proteinas;
 		this.sal = sal;
 		this.fibra = fibra;
+		this.unidadMedida = unidadMedida;
 	}
 
 	public int getId() {
@@ -127,7 +130,16 @@ public class MateriasProveedorRelProvDTO {
 		this.fibra = fibra;
 	}
 	
-	
-	
-	
+	public String getUnidadMedida() {
+		return unidadMedida;
+	}
+
+	public void setUnidadMedida(String unidadMedida) {
+		this.unidadMedida = unidadMedida;
+	}
+
+	@Override
+	public String toString() {
+		return nombre + " (" + proveedor + ")";
+	}
 }

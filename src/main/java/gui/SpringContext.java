@@ -1,7 +1,9 @@
 package gui;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Component;
 
+@Component
 public class SpringContext {
     private static ApplicationContext context;
 

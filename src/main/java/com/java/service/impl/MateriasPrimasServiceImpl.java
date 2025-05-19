@@ -48,10 +48,12 @@ public class MateriasPrimasServiceImpl implements MateriasPrimasService {
     	
     	for (modeloMateriasPrimas m : materias) {
     		modeloRelProveedor rel = repositorioRelMateria.findByMateriaPrima(m);
+    		if (rel == null) continue;
     		modeloProveedor p = (rel != null) ? rel.getProveedor() : null;
     		
 
             datos.add(new MateriasProveedorRelProvDTO(
+            	rel.getId(),
                 m.getNombre(),
                 (p != null) ? p.getNombre() : "Sin proveedor",
                 rel.getPrecio(),
@@ -62,7 +64,8 @@ public class MateriasPrimasServiceImpl implements MateriasPrimasService {
                 rel.getSaturadas(),
                 rel.getProteinas(),
                 rel.getSal(),
-                rel.getFibra()
+                rel.getFibra(),
+                m.getUnidad_medida()
             ));
         }
 

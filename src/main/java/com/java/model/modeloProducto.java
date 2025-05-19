@@ -53,5 +53,111 @@ public class modeloProducto {
 	
 	@Column(name = "cod_barras", unique = true)
 	private String cod_barras;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public double getPeso() {
+		return peso;
+	}
+
+	public void setPeso(double peso) {
+		this.peso = peso;
+	}
+
+	public String getCat_legal() {
+		return cat_legal;
+	}
+
+	public void setCat_legal(String cat_legal) {
+		this.cat_legal = cat_legal;
+	}
+
+	public String getDurabilidad() {
+		return durabilidad;
+	}
+
+	public void setDurabilidad(String durabilidad) {
+		this.durabilidad = durabilidad;
+	}
+
+	public String getTransporte() {
+		return transporte;
+	}
+
+	public void setTransporte(String transporte) {
+		this.transporte = transporte;
+	}
+
+	public String getCond_almac() {
+		return cond_almac;
+	}
+
+	public void setCond_almac(String cond_almac) {
+		this.cond_almac = cond_almac;
+	}
+
+	public String getComposicion() {
+		return composicion;
+	}
+
+	public void setComposicion(String composicion) {
+		this.composicion = composicion;
+	}
+
+	public String getCod_prod() {
+		return cod_prod;
+	}
+
+	public void setCod_prod(String cod_prod) {
+		this.cod_prod = cod_prod;
+	}
+
+	public int getUnidad_caja() {
+		return unidad_caja;
+	}
+
+	public void setUnidad_caja(int unidad_caja) {
+		this.unidad_caja = unidad_caja;
+	}
+
+	public double getPeso_caja() {
+		return peso_caja;
+	}
+
+	public void setPeso_caja(double peso_caja) {
+		this.peso_caja = peso_caja;
+	}
+
+	public String getCod_barras() {
+		return cod_barras;
+	}
+
+	public void setCod_barras(String cod_barras) {
+		this.cod_barras = cod_barras;
+	}
+	
+	
 	
 }
