@@ -20,4 +20,28 @@ public class modeloRelIngrediente {
     @MapsId("materiaPrima")
     @JoinColumn(name = "ID_materia", nullable = false)
     private modeloMateriasPrimas materiaPrima;
+
+	public RelIngredienteId getId() {
+		return id;
+	}
+
+	public void setId(RelIngredienteId id) {
+		this.id = id;
+	}
+
+	public modeloIngredientes getIngrediente() {
+		return ingrediente;
+	}
+
+	public void setIngrediente(modeloIngredientes ingrediente) {
+		this.ingrediente = ingrediente;
+	}
+
+	public modeloMateriasPrimas getMateriaPrima() {
+		return materiaPrima;
+	}
+
+	public void setMateriaPrima(modeloMateriasPrimas materiaPrima) {
+		this.materiaPrima = materiaPrima;
+	}
 }

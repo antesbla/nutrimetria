@@ -22,5 +22,39 @@ public class modeloRelAlergeno {
     private modeloMateriasPrimas materia;
 
     @Column(name = "cantidad")
-    private double cantidad;
+    private int cantidad;
+
+	public RelAlergenoId getId() {
+		return id;
+	}
+
+	public void setId(RelAlergenoId id) {
+		this.id = id;
+	}
+
+	public modeloAlergeno getAlergeno() {
+		return alergeno;
+	}
+
+	public void setAlergeno(modeloAlergeno alergeno) {
+		this.alergeno = alergeno;
+	}
+
+	public modeloMateriasPrimas getMateria() {
+		return materia;
+	}
+
+	public void setMateria(modeloMateriasPrimas materia) {
+		this.materia = materia;
+	}
+
+	public int getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
+    
+    
 }

@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="860.0" prefWidth="1535.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ControladorFichaTecnica">
+   <children>
+      <Pane layoutX="14.0" layoutY="64.0" prefHeight="781.0" prefWidth="1501.0" style="-fx-background-color: F9E9D0; -fx-border-color: E5A743; -fx-border-width: 2; -fx-border-radius: 0; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <Button layoutX="1056.0" layoutY="726.0" mnemonicParsing="false" onMouseClicked="#exportarFichaTecnica" prefHeight="34.0" prefWidth="430.0" style="-fx-border-color: E5A743; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: F2D3A1;" text="Extraer Ficha Técnica">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <GridPane fx:id="gridPaneFichaTecnica2" layoutX="542.0" layoutY="10.0" prefHeight="750.0" prefWidth="500.0" style="-fx-background-color: white;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="240.0" prefWidth="245.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="240.0" prefWidth="245.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" minHeight="20.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="15.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label prefHeight="86.0" prefWidth="260.0" text="ETIQUETADO:" textFill="#e5a743" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="20.0" prefWidth="517.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="SISTEMA DE LOTEADO:" textFill="#e5a743" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="21">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="20.0" prefWidth="493.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="CONDICIONES DE ALMACENAMIENTO:" textFill="#e5a743" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="17">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="20.0" prefWidth="556.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="CONDICIONES DE TRANSPORTE:" textFill="#e5a743" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="19">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelEtiquetado" alignment="CENTER" contentDisplay="CENTER" prefHeight="19.0" prefWidth="527.0" style="-fx-border-width: 1.5 0 0 0; -fx-border-color: black;" text="selecciona producto" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                  <Label fx:id="labelNombreEmpresaEditable" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#abrirEditorTexto" prefHeight="20.0" prefWidth="488.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="Pulsa aquí para rellenar (Nombre de la Empresa)" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="14" />
+                  <Label fx:id="labelTransporte" alignment="CENTER" prefHeight="0.0" prefWidth="480.0" text="selecciona producto" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="20" />
+                  <Label fx:id="labelDireccionEditable" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#abrirEditorTexto" prefHeight="20.0" prefWidth="479.0" text="Pulsa aquí para rellenar (Dirección de la Empresa)" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="15" />
+                  <Label text="2/2" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="37">
+                     <padding>
+                        <Insets bottom="10.0" right="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelReglasLoteado" alignment="TOP_CENTER" contentDisplay="CENTER" onMouseClicked="#abrirEditorTexto" prefHeight="101.0" prefWidth="480.0" text="Pulsa aquí para rellenar (reglas de fromación del loteado)" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="11" GridPane.rowSpan="3" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#abrirEditorTexto" prefHeight="20.0" prefWidth="479.0" text="selecciona producto" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="16" />
+                  <Label fx:id="labelCondAlmac" alignment="CENTER" prefHeight="0.0" prefWidth="480.0" text="selecciona producto" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="18" />
+                  <Label fx:id="labelLoteadoEditable" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#abrirEditorTexto" prefHeight="0.0" prefWidth="480.0" text="Pulsa aquí para rellenar" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="22" />
+                  <Label prefHeight="20.0" prefWidth="517.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="OGM:" textFill="#e5a743" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="23">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelOgmEditable" alignment="TOP_LEFT" contentDisplay="CENTER" onMouseClicked="#abrirEditorTexto" prefHeight="149.0" prefWidth="480.0" text="Pulsa aquí para rellenar (Organismos genéticamente modificados)" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="24" GridPane.rowSpan="6" />
+                  <Label prefHeight="20.0" prefWidth="517.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="OTROS:" textFill="#e5a743" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="30">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelOtrosEditable" alignment="CENTER" onMouseClicked="#abrirEditorTexto" prefHeight="51.0" prefWidth="480.0" text="Pulsa aquí para rellenar" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="31" GridPane.rowSpan="2" />
+                  <Label prefHeight="20.0" prefWidth="517.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="DURABILIDAD:" textFill="#e5a743" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="33">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelDurabilidad" alignment="CENTER" prefHeight="51.0" prefWidth="480.0" text="selecciona producto" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="34" />
+                  <Label fx:id="labelMateriasOrdenadas" contentDisplay="CENTER" prefHeight="163.0" prefWidth="480.0" text="selecciona producto" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="7" GridPane.rowSpan="4" />
+                  <Label prefHeight="20.0" prefWidth="556.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="PRESENTACIÓN Y ENVASADO" textFill="#e5a743" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <GridPane GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.rowSpan="3">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="235.0" minWidth="10.0" prefWidth="154.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="370.0" minWidth="10.0" prefWidth="326.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label fx:id="labelPesoProd" alignment="CENTER" prefHeight="17.0" prefWidth="189.0" text="selecciona producto" textAlignment="CENTER">
+                           <GridPane.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="labelEnvasado" alignment="TOP_LEFT" onMouseClicked="#abrirEditorTexto" prefHeight="78.0" prefWidth="326.0" text="pulsa aquí para rellenar" wrapText="true" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+               </children>
+            </GridPane>
+            <ListView fx:id="listaProductos" layoutX="1056.0" layoutY="59.0" prefHeight="653.0" prefWidth="430.0" />
+            <Label layoutX="1076.0" layoutY="20.0" text="Selecciona un producto para ver la Ficha Técnica" underline="true">
+               <font>
+                  <Font name="Rockwell Condensed" size="24.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Pane layoutX="420.0" layoutY="14.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: F1F1F1; -fx-border-color: black; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <Button layoutX="11.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#Materias" prefHeight="34.0" prefWidth="178.0" style="-fx-border-color: black; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: white;" text="Materias Primas">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="1466.0" layoutY="14.0" prefHeight="52.0" prefWidth="49.0" style="-fx-background-color: F9E9D0; -fx-border-color: E5A743; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="40.0" layoutX="4.0" layoutY="7.0" onMouseClicked="#CerrarApp" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/EQUIS.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
+      <Pane layoutX="217.0" layoutY="14.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: F1F1F1; -fx-border-color: black; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <Button layoutX="11.0" layoutY="11.0" mnemonicParsing="false" onMouseClicked="#Etiquetado" prefHeight="34.0" prefWidth="178.0" style="-fx-border-color: black; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: white;" text="Etiquetado">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="14.0" layoutY="14.0" prefHeight="52.0" prefWidth="200.0" style="-fx-background-color: F9E9D0; -fx-border-color: E5A743; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <Button layoutX="11.0" layoutY="11.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="178.0" style="-fx-border-color: E5A743; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: F2D3A1;" text="Ficha Técnica">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="1412.0" layoutY="14.0" prefHeight="52.0" prefWidth="49.0" style="-fx-background-color: F9E9D0; -fx-border-color: E5A743; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <ImageView fitHeight="45.0" fitWidth="40.0" layoutX="8.0" layoutY="4.0" onMouseClicked="#CerrarSesion" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/LOGOUT.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="623.0" layoutY="14.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: F1F1F1; -fx-border-color: black; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <Button layoutX="11.0" layoutY="11.0" mnemonicParsing="false" onMouseClicked="#Productos" prefHeight="34.0" prefWidth="178.0" style="-fx-border-color: black; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: white;" text="Productos">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="826.0" layoutY="13.0" onMouseClicked="#Proveedor" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: F1F1F1; -fx-border-color: black; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <Button layoutX="10.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#Proveedor" prefHeight="34.0" prefWidth="178.0" style="-fx-border-color: black; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: white;" text="Proveedores">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <GridPane fx:id="gridPaneFichaTecnica" layoutX="35.0" layoutY="74.0" prefHeight="750.0" prefWidth="500.0" style="-fx-background-color: white;">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="240.0" prefWidth="245.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="240.0" prefWidth="245.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="5.0" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="50.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="13.0" minHeight="13.0" prefHeight="13.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="13.0" minHeight="13.0" prefHeight="13.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="13.0" minHeight="13.0" prefHeight="13.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="13.0" minHeight="13.0" prefHeight="13.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="72.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" prefHeight="71.0" prefWidth="130.0" style="-fx-border-color: black;" text="FICHA TÉCNICA" GridPane.halignment="CENTER" GridPane.rowSpan="2" />
+                  <Label fx:id="labelFechaActual" alignment="CENTER" contentDisplay="CENTER" prefHeight="121.0" prefWidth="120.0" style="-fx-border-color: black;" text="Fecha Hoy" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowSpan="2" />
+               </children>
+            </GridPane>
+            <Label prefHeight="86.0" prefWidth="260.0" text="NOMBRE COMERCIAL:" textFill="#e5a743" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label prefHeight="86.0" prefWidth="260.0" text="CLASIFICACIÓN LEGAL:" textFill="#e5a743" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label prefHeight="86.0" prefWidth="260.0" text="MARCAS COMERCIALES:" textFill="#e5a743" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label prefHeight="20.0" prefWidth="493.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="COPMOSICIÓN:" textFill="#e5a743" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label prefHeight="20.0" prefWidth="556.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="PROCESADO:" textFill="#e5a743" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="8">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <GridPane alignment="TOP_RIGHT" prefHeight="104.0" prefWidth="480.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="9" GridPane.rowSpan="3">
+              <columnConstraints>
+                <ColumnConstraints maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="130.0" prefWidth="130.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="303.0" style="-fx-border-color: BLACK;" text="VALORES NUTRICIONALES POR 100 GR" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" />
+                  <Label prefHeight="33.0" prefWidth="130.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 1;" text="Valor energético" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 1;" text="Grasas" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="158.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 1;" text="De las cuales saturadas" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="182.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 1;" text="Sal" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="173.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 1;" text="Proteínas" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="149.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 1;" text="Fibra alimentaria" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="159.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 1;" text="De los cuales azúcares" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="171.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 1;" text="Hidratos de carbono" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelGrasas" alignment="CENTER" prefHeight="18.0" prefWidth="235.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 0;" text="selecciona producto" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                  <Label fx:id="labelKcal" alignment="CENTER" prefHeight="33.0" prefWidth="130.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 0;" text="selecciona producto" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Label fx:id="labelFibra" alignment="CENTER" prefHeight="18.0" prefWidth="159.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 0;" text="selecciona producto" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+                  <Label fx:id="labelAzucares" alignment="CENTER" prefHeight="18.0" prefWidth="171.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 0;" text="selecciona producto" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+                  <Label fx:id="labelHidratos" alignment="CENTER" prefHeight="18.0" prefWidth="180.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 0;" text="selecciona producto" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                  <Label fx:id="labelSaturadas" alignment="CENTER" prefHeight="18.0" prefWidth="186.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 0;" text="selecciona producto" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                  <Label fx:id="labelSal" alignment="CENTER" prefHeight="18.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 0;" text="selecciona producto" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="8" />
+                  <Label fx:id="labelProteinas" alignment="CENTER" prefHeight="18.0" prefWidth="156.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 0;" text="selecciona producto" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="7" />
+                  <Label fx:id="labelKJ" alignment="CENTER" prefHeight="33.0" prefWidth="130.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 0;" text="selecciona producto" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+               </children>
+               <GridPane.margin>
+                  <Insets top="25.0" />
+               </GridPane.margin>
+            </GridPane>
+            <Label alignment="TOP_LEFT" prefHeight="19.0" prefWidth="500.0" style="-fx-border-width: 1.5 0 0 0; -fx-border-color: black;" text="CARACTERÍSTICAS MICROBIOLÓGICAS DEL PRODUCTO" textFill="#e5a743" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="14">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="116.0" fitWidth="167.0" onMouseClicked="#CerrarSesion" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../img/LOGO_Nutrimetria_v2.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="labelNomCom" alignment="CENTER" contentDisplay="CENTER" prefHeight="0.0" prefWidth="480.0" style="-fx-border-width: 1.5 0 0 0; -fx-border-color: black;" text="selecciona producto" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Label fx:id="labelClasifLegal" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#abrirEditorTexto" prefHeight="38.0" prefWidth="480.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="Pulsa aquí para rellenar" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <Label fx:id="labelComposicion" prefHeight="17.0" prefWidth="641.0" text="selecciona producto" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="7" />
+            <Label fx:id="labelMarcasComerc" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#abrirEditorTexto" prefHeight="20.0" prefWidth="479.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="Pulsa aquí para rellenar" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+            <Label fx:id="labelMicrobiolog" alignment="TOP_LEFT" onMouseClicked="#abrirEditorTexto" prefHeight="108.0" prefWidth="480.0" text="Pulsa aquí para rellenar" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="15" GridPane.rowSpan="5" />
+            <GridPane prefHeight="253.0" prefWidth="480.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="21" GridPane.rowSpan="9">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="258.0" minWidth="10.0" prefWidth="247.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="68.0" prefWidth="69.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="136.0" prefWidth="164.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" prefHeight="51.0" prefWidth="258.0" style="-fx-border-color: black; -fx-border-width: 1 1 1 1;" text="ALÉRGENOS" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="75.0" style="-fx-border-color: black; -fx-border-width: 1 0 1 0;" text="Ingrediente" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                  <Label alignment="TOP_CENTER" prefHeight="41.0" prefWidth="193.0" style="-fx-border-color: black;" text="Presencia en fábrica ( Posible" GridPane.columnIndex="2" GridPane.valignment="TOP" />
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="154.0" text="contaminación cruzada)" GridPane.columnIndex="2" GridPane.valignment="BOTTOM" />
+                  <Label alignment="TOP_LEFT" prefHeight="0.0" prefWidth="247.0" text="Granos de sésamo y productos a" GridPane.rowIndex="11" GridPane.valignment="TOP">
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="106.0" prefWidth="247.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 1;" text="base de granos de sésamo." GridPane.rowIndex="11" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="367.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 1;" text="Cereales que contengan gluten" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="291.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 1;" text="Crustáceos y productos a base de crustáceos." GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <Label prefHeight="0.0" prefWidth="258.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 1;" text="Huevos y productos a base de huevo" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="291.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 1;" text="Peescado y productos a base de pescado" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="291.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 1;" text="Cacahuetes y productos a base de cacahuetes" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="291.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 1;" text="Soja y productos a base de soja" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="291.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 1;" text="Leche y sus derivados" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="291.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 1;" text="Frutos de cáscara" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="291.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 1;" text="Apio y productos derivados" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="291.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 1;" text="Mostaza y productos derivados" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="291.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 1;" text="Dióxido de azufre y sulfitos" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER">
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="291.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 1;" text="Altramuces y productos a base de altramuces" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER">
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="291.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 1;" text="Moluscos y productos a base de moluscos" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets left="4.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelAlergeno1" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="122.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelAlergeno2" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="84.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelAlergeno3" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="84.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelAlergeno4" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="84.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelAlergeno5" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="84.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelAlergeno6" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="84.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelAlergeno7" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="84.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelAlergeno8" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="84.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelAlergeno9" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="84.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelAlergeno10" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="84.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelAlergeno11" alignment="CENTER" contentDisplay="CENTER" prefHeight="67.0" prefWidth="70.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;" text=" " GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="11" />
+                  <Label fx:id="labelAlergeno12" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="84.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelAlergeno13" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="84.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelAlergeno14" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="84.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelTraza1" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="182.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelTraza2" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="183.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelTraza3" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="175.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelTraza4" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="198.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelTraza5" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="204.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelTraza6" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="201.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelTraza13" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="199.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelTraza12" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="231.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelTraza11" alignment="CENTER" contentDisplay="CENTER" prefHeight="47.0" prefWidth="164.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 0;" text=" " GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="11" />
+                  <Label fx:id="labelTraza10" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="201.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelTraza9" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="209.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelTraza8" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="207.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelTraza7" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="labelTraza14" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="18.0" prefWidth="204.0" style="-fx-border-color: black; -fx-border-width: 0 1 1 0;" text=" " textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="BASELINE">
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <GridPane.margin>
+                  <Insets top="10.0" />
+               </GridPane.margin>
+            </GridPane>
+            <Label text="1/2" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="34">
+               <GridPane.margin>
+                  <Insets bottom="10.0" right="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="labelProcesado" alignment="TOP_LEFT" contentDisplay="CENTER" onMouseClicked="#abrirEditorTexto" prefHeight="133.0" prefWidth="200.0" text="Pulsa aquí para rellenar" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="9" GridPane.rowSpan="4" GridPane.valignment="CENTER" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

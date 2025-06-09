@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="860.0" prefWidth="1535.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ControladorProveedor">
+   <children>
+      <Pane layoutX="14.0" layoutY="63.0" prefHeight="781.0" prefWidth="1501.0" style="-fx-background-color: F9E9D0; -fx-border-color: E5A743; -fx-border-width: 2; -fx-border-radius: 0; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <TextField fx:id="campoBusqueda" layoutX="14.0" layoutY="17.0" prefHeight="39.0" prefWidth="851.0" promptText="🔍 Nombre del producto" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 100; -fx-background-radius: 100;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <TableView fx:id="tablaProveedores" layoutX="16.0" layoutY="73.0" prefHeight="695.0" prefWidth="1469.0" style="-fx-background-color: white; -fx-border-color: E5A743; -fx-border-width: 2; -fx-padding: 0;">
+              <columns>
+                <TableColumn fx:id="colID" prefWidth="98.0" resizable="false" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" text="ID" />
+                  <TableColumn fx:id="colNombre" prefWidth="285.0" resizable="false" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" text="Nombre" />
+                  <TableColumn fx:id="colCIF" prefWidth="171.0" resizable="false" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" text="CIF" />
+                  <TableColumn fx:id="colTelefono" minWidth="0.0" prefWidth="170.0" resizable="false" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" text="Teléfono" />
+                  <TableColumn fx:id="colEmail" prefWidth="365.0" resizable="false" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" text="Email" />
+                  <TableColumn fx:id="colDireccion" prefWidth="376.0" resizable="false" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" text="Dirección" />
+              </columns>
+            </TableView>
+            <Button layoutX="876.0" layoutY="19.0" mnemonicParsing="false" onMouseClicked="#formularioAgregarProv" prefHeight="34.0" prefWidth="188.0" style="-fx-border-color: E5A743; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: F2D3A1;" text="Agregar Proveedor">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="1074.0" layoutY="19.0" mnemonicParsing="false" onMouseClicked="#modificarProveedor" prefHeight="34.0" prefWidth="200.0" style="-fx-border-color: E5A743; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: F2D3A1;" text="Modificar Proveedor">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="1283.0" layoutY="19.0" mnemonicParsing="false" onMouseClicked="#eliminarProveedor" prefHeight="34.0" prefWidth="200.0" style="-fx-border-color: E5A743; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: F2D3A1;" text="Eliminar Proveedor">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children></Pane>
+      <Pane layoutX="420.0" layoutY="13.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: F1F1F1; -fx-border-color: black; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <Button layoutX="11.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#MateriaPrima" prefHeight="34.0" prefWidth="178.0" style="-fx-border-color: black; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: white;" text="Materias Primas">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="1466.0" layoutY="13.0" prefHeight="52.0" prefWidth="49.0" style="-fx-background-color: F9E9D0; -fx-border-color: E5A743; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="40.0" layoutX="5.0" layoutY="6.0" onMouseClicked="#CerrarApp" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/EQUIS.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
+      <Pane layoutX="217.0" layoutY="13.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: F1F1F1; -fx-border-color: black; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <Button layoutX="11.0" layoutY="11.0" mnemonicParsing="false" onMouseClicked="#Etiquetado" prefHeight="34.0" prefWidth="178.0" style="-fx-border-color: black; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: white;" text="Etiquetado">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="14.0" layoutY="13.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: F1F1F1; -fx-border-color: black; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <Button layoutX="11.0" layoutY="11.0" mnemonicParsing="false" onMouseClicked="#FichaTecnica" prefHeight="34.0" prefWidth="178.0" style="-fx-border-color: black; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: white;" text="Ficha Técnica">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="1412.0" layoutY="14.0" prefHeight="52.0" prefWidth="49.0" style="-fx-background-color: F9E9D0; -fx-border-color: E5A743; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <ImageView fitHeight="45.0" fitWidth="40.0" layoutX="8.0" layoutY="4.0" onMouseClicked="#CerrarSesion" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/LOGOUT.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="623.0" layoutY="13.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: F1F1F1; -fx-border-color: black; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <Button layoutX="11.0" layoutY="11.0" mnemonicParsing="false" onMouseClicked="#Producto" prefHeight="34.0" prefWidth="178.0" style="-fx-border-color: black; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: white;" text="Productos">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="826.0" layoutY="13.0" prefHeight="52.0" prefWidth="200.0" style="-fx-background-color: F9E9D0; -fx-border-color: E5A743; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <Button layoutX="10.0" layoutY="12.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="178.0" style="-fx-border-color: E5A743; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: F2D3A1;" text="Proveedores">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

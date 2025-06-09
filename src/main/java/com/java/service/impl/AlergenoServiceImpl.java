@@ -26,6 +26,11 @@ public class AlergenoServiceImpl implements AlergenoService {
     public modeloAlergeno findById(int id) {
         return repository.findById(id).orElse(null);
     }
+    
+    @Override
+    public modeloAlergeno findByNombre(String nombre) {
+        return repository.findByNombre(nombre).orElse(null);
+    }
 
     @Override
     public modeloAlergeno save(modeloAlergeno alergeno) {

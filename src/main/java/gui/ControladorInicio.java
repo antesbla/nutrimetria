@@ -17,16 +17,13 @@ import javafx.scene.control.TextField;
 @Component
 public class ControladorInicio {
 	
-	@FXML
-	private TextField nombreUsuario;
-	@FXML
-	private PasswordField password;
-	@Autowired
-	private AuthenticationManager authManager;
+	@FXML private TextField nombreUsuario;
+	@FXML private PasswordField password;
+	@Autowired private AuthenticationManager authManager;
 	
 	@FXML
 	private void CambiarVentana() throws Exception {
-		JavaFxApp.setRoot("materiaprima");
+		JavaFxApp.setRoot("fichaTecnica");
 	}
 	
 	@FXML

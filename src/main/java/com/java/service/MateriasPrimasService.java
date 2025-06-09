@@ -9,4 +9,5 @@ public interface MateriasPrimasService {
     modeloMateriasPrimas findById(int id);
     modeloMateriasPrimas save(modeloMateriasPrimas materiaPrima);
     void deleteById(int id);
+    modeloMateriasPrimas findByNombre(String nombre);
 }

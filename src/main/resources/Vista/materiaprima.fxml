@@ -20,7 +20,7 @@
    <children>
       <Pane layoutX="14.0" layoutY="62.0" prefHeight="781.0" prefWidth="1501.0" styleClass="pane-principal">
          <children>
-            <TextField layoutX="14.0" layoutY="17.0" prefHeight="39.0" prefWidth="851.0" promptText="🔍 Nombre de la materia prima" styleClass="textfield-busqueda">
+            <TextField fx:id="campoBusqueda" layoutX="14.0" layoutY="17.0" prefHeight="39.0" prefWidth="851.0" promptText="🔍 Nombre de la materia prima" styleClass="textfield-busqueda">
                <font>
                   <Font size="16.0" />
                </font>
@@ -46,7 +46,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="1074.0" layoutY="19.0" prefHeight="34.0" prefWidth="200.0" styleClass="boton-principal" text="Modificar Materia Prima">
+            <Button layoutX="1074.0" layoutY="19.0" onMouseClicked="#modificarMateriaPrima" prefHeight="34.0" prefWidth="200.0" styleClass="boton-principal" text="Modificar Materia Prima">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -58,7 +58,7 @@
             </Button>
          </children>
       </Pane>
-      <Pane layoutX="68.0" layoutY="12.0" prefHeight="52.0" prefWidth="200.0" styleClass="pestana-activa">
+      <Pane layoutX="418.0" layoutY="12.0" prefHeight="52.0" prefWidth="200.0" styleClass="pestana-activa">
          <children>
             <Button layoutX="11.0" layoutY="11.0" prefHeight="34.0" prefWidth="178.0" styleClass="boton-principal" text="Materias Primas">
                <font>
@@ -67,7 +67,7 @@
             </Button>
          </children>
       </Pane>
-      <Pane layoutX="272.0" layoutY="12.0" prefHeight="50.0" prefWidth="200.0" styleClass="pestana-inactiva">
+      <Pane layoutX="620.0" layoutY="12.0" prefHeight="50.0" prefWidth="200.0" styleClass="pestana-inactiva">
          <children>
             <Button layoutX="11.0" layoutY="11.0" onMouseClicked="#Productos" prefHeight="34.0" prefWidth="178.0" styleClass="boton-pestana" text="Productos">
                <font>
@@ -85,18 +85,18 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="476.0" layoutY="12.0" prefHeight="50.0" prefWidth="200.0" styleClass="pestana-inactiva">
+      <Pane layoutX="216.0" layoutY="12.0" prefHeight="50.0" prefWidth="200.0" styleClass="pestana-inactiva">
          <children>
-            <Button layoutX="11.0" layoutY="11.0" prefHeight="34.0" prefWidth="178.0" styleClass="boton-pestana" text="Etiquetado">
+            <Button layoutX="11.0" layoutY="11.0" onMouseClicked="#Etiquetado" prefHeight="34.0" prefWidth="178.0" styleClass="boton-pestana" text="Etiquetado">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <Pane layoutX="680.0" layoutY="12.0" prefHeight="50.0" prefWidth="200.0" styleClass="pestana-inactiva">
+      <Pane layoutX="14.0" layoutY="12.0" prefHeight="50.0" prefWidth="200.0" styleClass="pestana-inactiva">
          <children>
-            <Button layoutX="11.0" layoutY="11.0" prefHeight="34.0" prefWidth="178.0" styleClass="boton-pestana" text="Ficha Técnica">
+            <Button layoutX="11.0" layoutY="10.0" onMouseClicked="#FichaTecnica" prefHeight="34.0" prefWidth="178.0" styleClass="boton-pestana" text="Ficha Técnica">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -108,15 +108,6 @@
             <ImageView fitHeight="45.0" fitWidth="40.0" layoutX="8.0" layoutY="4.0" onMouseClicked="#CerrarSesion" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/LOGOUT.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
-      <Pane layoutX="14.0" layoutY="12.0" prefHeight="52.0" prefWidth="49.0" styleClass="pestana-activa">
-         <children>
-            <ImageView fitHeight="43.0" fitWidth="33.0" layoutX="8.0" layoutY="7.0" onMouseClicked="#CerrarSesion" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/CASA.png" />
                </image>
             </ImageView>
          </children>
@@ -180,5 +171,14 @@
             <Insets />
          </opaqueInsets>
       </GridPane>
+      <Pane layoutX="822.0" layoutY="12.0" prefHeight="50.0" prefWidth="200.0" styleClass="pestana-inactiva">
+         <children>
+            <Button layoutX="11.0" layoutY="11.0" onMouseClicked="#Proveedor" prefHeight="34.0" prefWidth="178.0" styleClass="boton-pestana" text="Proveedor">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

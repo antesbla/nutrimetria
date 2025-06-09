@@ -43,7 +43,7 @@ public class modeloProducto {
 	private String composicion;
 	
 	@Column(name = "cod_prod", unique = true)
-	private String cod_prod;
+	private int cod_prod;
 
 	@Column(name = "unidad_caja")
 	private int unidad_caja;
@@ -126,11 +126,11 @@ public class modeloProducto {
 		this.composicion = composicion;
 	}
 
-	public String getCod_prod() {
+	public int getCod_prod() {
 		return cod_prod;
 	}
 
-	public void setCod_prod(String cod_prod) {
+	public void setCod_prod(int cod_prod) {
 		this.cod_prod = cod_prod;
 	}
 
@@ -156,6 +156,11 @@ public class modeloProducto {
 
 	public void setCod_barras(String cod_barras) {
 		this.cod_barras = cod_barras;
+	}
+
+	@Override
+	public String toString() {
+		return nombre;
 	}
 	
 	

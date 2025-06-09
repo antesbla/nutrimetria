@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="860.0" prefWidth="1535.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ControladorEtiquetado">
+   <children>
+      <Pane layoutX="14.0" layoutY="63.0" prefHeight="781.0" prefWidth="1501.0" style="-fx-background-color: F9E9D0; -fx-border-color: E5A743; -fx-border-width: 2; -fx-border-radius: 0; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <Pane layoutX="217.0" layoutY="61.0" prefHeight="451.0" prefWidth="887.0" style="-fx-background-color: white;" />
+         </children></Pane>
+      <Pane layoutX="420.0" layoutY="13.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: F1F1F1; -fx-border-color: black; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <Button layoutX="11.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#MateriaPrima" prefHeight="34.0" prefWidth="178.0" style="-fx-border-color: black; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: white;" text="Materias Primas">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="1466.0" layoutY="13.0" prefHeight="52.0" prefWidth="49.0" style="-fx-background-color: F9E9D0; -fx-border-color: E5A743; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="40.0" layoutX="5.0" layoutY="6.0" onMouseClicked="#CerrarApp" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/EQUIS.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
+      <Pane layoutX="217.0" layoutY="13.0" prefHeight="52.0" prefWidth="200.0" style="-fx-background-color: F9E9D0; -fx-border-color: E5A743; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <Button layoutX="11.0" layoutY="11.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="178.0" style="-fx-border-color: E5A743; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: F2D3A1;" text="Etiquetado">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="14.0" layoutY="13.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: F1F1F1; -fx-border-color: black; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <Button layoutX="11.0" layoutY="11.0" mnemonicParsing="false" onMouseClicked="#FichaTecnica" prefHeight="34.0" prefWidth="178.0" style="-fx-border-color: black; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: white;" text="Ficha Técnica">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="1412.0" layoutY="14.0" prefHeight="52.0" prefWidth="49.0" style="-fx-background-color: F9E9D0; -fx-border-color: E5A743; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <ImageView fitHeight="45.0" fitWidth="40.0" layoutX="8.0" layoutY="4.0" onMouseClicked="#CerrarSesion" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/LOGOUT.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="623.0" layoutY="13.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: F1F1F1; -fx-border-color: black; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <Button layoutX="10.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#Productos" prefHeight="34.0" prefWidth="178.0" style="-fx-border-color: black; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: white;" text="Productos">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="826.0" layoutY="13.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: F1F1F1; -fx-border-color: black; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+         <children>
+            <Button layoutX="11.0" layoutY="11.0" mnemonicParsing="false" onMouseClicked="#Proveedor" prefHeight="34.0" prefWidth="178.0" style="-fx-border-color: black; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: white;" text="Proveedores">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

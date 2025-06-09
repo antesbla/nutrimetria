@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.java.DTO.MateriaPrimaCompletaDTO;
 import com.java.DTO.MateriasProveedorRelProvDTO;
 import com.java.model.modeloProveedor;
 import com.java.service.impl.MateriasPrimasServiceImpl;
@@ -34,44 +35,25 @@ import javafx.stage.Stage;
 @Component
 public class ControladorMateriaPrima implements Initializable{
 	
-	@FXML
-    private TableView<MateriasProveedorRelProvDTO> tablaMateriasPrimas;
-    @FXML
-    private TableColumn<MateriasProveedorRelProvDTO, String> colId;
-    @FXML
-    private TableColumn<MateriasProveedorRelProvDTO, String> colNombre;
-    @FXML
-    private TableColumn<MateriasProveedorRelProvDTO, String> colProveedor;  
-    @FXML
-    private TableColumn<MateriasProveedorRelProvDTO, Double> colPrecio;
-    @FXML
-    private TableColumn<MateriasProveedorRelProvDTO, Double> colKcal;
-    @FXML
-    private TableColumn<MateriasProveedorRelProvDTO, Double> colHidratos;
-    @FXML
-    private TableColumn<MateriasProveedorRelProvDTO, Double> colAzucares;
-    @FXML
-    private TableColumn<MateriasProveedorRelProvDTO, Double> colGrasas;
-    @FXML
-    private TableColumn<MateriasProveedorRelProvDTO, Double> colSaturadas;
-    @FXML
-    private TableColumn<MateriasProveedorRelProvDTO, Double> colProteinas;
-    @FXML
-    private TableColumn<MateriasProveedorRelProvDTO, Double> colSal;
-    @FXML
-    private TableColumn<MateriasProveedorRelProvDTO, Double> colFibra;
-    @FXML
-    private AnchorPane root;
-    @FXML
-    private GridPane formAggMatPrim;
-    @FXML
-    private ChoiceBox<modeloProveedor> proveedores;
-    @FXML
-    private TextField FAGnombre, FAGprecio, FAGkcal, FAGhidratos, FAGazucares, FAGgrasas, FAGsaturadas, FAGproteinas, FAGsal, FAGfibra;
-    @Autowired
-    private MateriasPrimasServiceImpl servicioMateriasPrimas;
-    @Autowired
-    private ProveedorServiceImpl servicioProveedores;
+	@FXML private TableView<MateriasProveedorRelProvDTO> tablaMateriasPrimas;
+    @FXML private TableColumn<MateriasProveedorRelProvDTO, String> colId;
+    @FXML private TableColumn<MateriasProveedorRelProvDTO, String> colNombre;
+    @FXML private TableColumn<MateriasProveedorRelProvDTO, String> colProveedor;  
+    @FXML private TableColumn<MateriasProveedorRelProvDTO, Double> colPrecio;
+    @FXML private TableColumn<MateriasProveedorRelProvDTO, Double> colKcal;
+    @FXML private TableColumn<MateriasProveedorRelProvDTO, Double> colHidratos;
+    @FXML private TableColumn<MateriasProveedorRelProvDTO, Double> colAzucares;
+    @FXML private TableColumn<MateriasProveedorRelProvDTO, Double> colGrasas;
+    @FXML private TableColumn<MateriasProveedorRelProvDTO, Double> colSaturadas;
+    @FXML private TableColumn<MateriasProveedorRelProvDTO, Double> colProteinas;
+    @FXML private TableColumn<MateriasProveedorRelProvDTO, Double> colSal;
+    @FXML private TableColumn<MateriasProveedorRelProvDTO, Double> colFibra;
+    @FXML private AnchorPane root;
+    @FXML private GridPane formAggMatPrim;
+    @FXML private ChoiceBox<modeloProveedor> proveedores;
+    @FXML private TextField FAGnombre, FAGprecio, FAGkcal, FAGhidratos, FAGazucares, FAGgrasas, FAGsaturadas, FAGproteinas, FAGsal, FAGfibra, campoBusqueda;
+    @Autowired private MateriasPrimasServiceImpl servicioMateriasPrimas;
+    @Autowired private ProveedorServiceImpl servicioProveedores;
     
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -80,8 +62,13 @@ public class ControladorMateriaPrima implements Initializable{
 	    root.getStylesheets().add(css);
 	    List<modeloProveedor> prov = servicioProveedores.findAll();
 	    proveedores.setItems(FXCollections.observableArrayList(prov));
+	
+	    campoBusqueda.textProperty().addListener((observable, oldValue, newValue) -> {
+	        filtrarTabla(newValue);
+	    });
 	}
 	
+	@FXML
 	public void rellenarTabla() {
 		this.colId.setCellValueFactory(new PropertyValueFactory<>("id"));
 		this.colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
@@ -98,20 +85,6 @@ public class ControladorMateriaPrima implements Initializable{
 		List<MateriasProveedorRelProvDTO> datos = servicioMateriasPrimas.datosMatP();
 		tablaMateriasPrimas.setItems(FXCollections.observableArrayList(datos));
 	}
-	
-	/*@FXML
-	private void AgregarMateriaPrima() {
-		String nombre = FAGnombre.getText();
-        String precio = FAGprecio.getText();
-        String kcal = FAGkcal.getText();
-        String hidratos = FAGhidratos.getText();
-        String azucares = FAGazucares.getText();
-        String grasas = FAGgrasas.getText();
-        String saturadas = FAGsaturadas.getText();
-        String proteinas = FAGproteinas.getText();
-        String sal = FAGsal.getText();
-        String fibra = FAGfibra.getText();
-	}*/
 	
 	@FXML
 	private void eliminarMateriaPrima() {
@@ -130,6 +103,43 @@ public class ControladorMateriaPrima implements Initializable{
 	}
 	
 	@FXML
+	private void modificarMateriaPrima() throws IOException {
+	    MateriaPrimaCompletaDTO seleccionada = servicioMateriasPrimas.obtenerDTOCompletoPorId(
+	        tablaMateriasPrimas.getSelectionModel().getSelectedItem().getId());
+
+	    FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vista/FormAggMatPrim.fxml"));
+	    loader.setControllerFactory(JavaFxApp::getBean);
+	    Parent root = loader.load();
+
+	    ControladorFormAggMatPrim controlador = loader.getController();
+	    controlador.setMateriaEditar(seleccionada);
+
+	    Stage stage = new Stage();
+	    stage.setScene(new Scene(root));
+	    stage.setTitle("Modificar Materia Prima");
+	    stage.initModality(Modality.APPLICATION_MODAL);
+	    stage.show();
+	}
+
+	private void filtrarTabla(String filtro) {
+	    List<MateriasProveedorRelProvDTO> datos = servicioMateriasPrimas.datosMatP();
+
+	    if (filtro == null || filtro.trim().isEmpty()) {
+	        tablaMateriasPrimas.setItems(FXCollections.observableArrayList(datos));
+	        return;
+	    }
+
+	    String filtroLower = filtro.toLowerCase();
+
+	    List<MateriasProveedorRelProvDTO> filtrado = datos.stream()
+	        .filter(m -> m.getNombre().toLowerCase().contains(filtroLower))
+	        .toList();
+
+	    tablaMateriasPrimas.setItems(FXCollections.observableArrayList(filtrado));
+	}
+
+	
+	@FXML
 	private void CerrarApp() {
 		Platform.exit();
 	}
@@ -145,19 +155,33 @@ public class ControladorMateriaPrima implements Initializable{
 	}
 	
 	@FXML
-	private void formularioAgg() throws IOException {
-		/*//formAggMatPrim.setVisible(true);*/
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vista/FormAggMatPrim.fxml"));
-		loader.setControllerFactory(JavaFxApp::getBean); // usa el contexto de Spring
-		Parent root = loader.load();
-		
-		Stage stage = new Stage(); // ✅ aquí sí creas el Stage
-		stage.setScene(new Scene(root));
-		stage.setTitle("Agregar nueva materia prima");
-		stage.initModality(Modality.APPLICATION_MODAL); // opcional: para que sea modal
-		stage.show();
+	private void Proveedor() throws Exception {
+		JavaFxApp.setRoot("proveedor");
 	}
 	
+	@FXML
+	private void FichaTecnica() throws Exception {
+		JavaFxApp.setRoot("fichaTecnica");
+	}
+	
+	@FXML
+	private void Etiquetado() throws Exception {
+		JavaFxApp.setRoot("etiquetado");
+	}
+	
+	@FXML
+	private void formularioAgg() throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vista/FormAggMatPrim.fxml"));
+		loader.setControllerFactory(JavaFxApp::getBean);
+		Parent root = loader.load();
+		
+		Stage stage = new Stage();
+		stage.setScene(new Scene(root));
+		stage.setTitle("Agregar nueva materia prima");
+		stage.initModality(Modality.APPLICATION_MODAL);
+		stage.show();
+	}
+
 	@FXML
 	private void Cerrarformularios() {
 		formAggMatPrim.setVisible(false);

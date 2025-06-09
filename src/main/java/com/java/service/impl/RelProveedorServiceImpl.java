@@ -1,6 +1,7 @@
 package com.java.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import com.java.model.RelProveedorId;
 import org.springframework.stereotype.Service;
 
 import com.java.model.modeloRelProveedor;
@@ -21,7 +22,7 @@ public class RelProveedorServiceImpl implements RelProveedorService {
     }
 
     @Override
-    public modeloRelProveedor findById(int id) {
+    public modeloRelProveedor findById(RelProveedorId id) {
         return repository.findById(id).orElse(null);
     }
 
@@ -31,7 +32,21 @@ public class RelProveedorServiceImpl implements RelProveedorService {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(RelProveedorId id) {
         repository.deleteById(id);
     }
+    
+    public modeloRelProveedor obtenerRelacionPorMateriaYProveedor(int idMateria, int idProveedor) {
+        return repository.findByMateriaPrima_IdAndProveedor_Id(idMateria, idProveedor)
+                         .orElse(null);
+    }
+
+    @Override
+    public modeloRelProveedor obtenerRelacionPorMateriaPrima(int idMateriaPrima) {
+        return repository.findByMateriaPrima_Id(idMateriaPrima);
+    }
+
+
+
+
 }

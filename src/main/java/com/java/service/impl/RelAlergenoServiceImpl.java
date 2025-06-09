@@ -35,4 +35,9 @@ public class RelAlergenoServiceImpl implements RelAlergenoService {
     public void deleteById(RelAlergenoId id) {
         repository.deleteById(id);
     }
+    
+    public List<modeloRelAlergeno> findByMateriaPrimaId(int idMateria) {
+        return repository.findByMateria_Id(idMateria);
+    }
+
 }

@@ -24,6 +24,11 @@ public class IngredientesServiceImpl implements IngredientesService {
     public modeloIngredientes findById(int id) {
         return repository.findById(id).orElse(null);
     }
+    
+    @Override
+    public modeloIngredientes findByNombre(String nombre) {
+        return repository.findByNombre(nombre).orElse(null);
+    }
 
     @Override
     public modeloIngredientes save(modeloIngredientes ingrediente) {

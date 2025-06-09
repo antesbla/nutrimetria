@@ -2,6 +2,7 @@ package com.java.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.java.model.RelMateriaId;
 import com.java.model.modeloRelMateria;
@@ -35,4 +36,15 @@ public class RelMateriaServiceImpl implements RelMateriaService {
     public void deleteById(RelMateriaId id) {
         repository.deleteById(id);
     }
+
+	@Override
+	public List<modeloRelMateria> findByProductoId(int idProducto) {
+		return repository.findByProducto_Id(idProducto);
+	}
+	
+	@Transactional
+	public void deleteByProductoId(int idProducto) {
+	    repository.deleteByProducto_Id(idProducto);
+	}
+
 }

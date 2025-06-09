@@ -9,4 +9,5 @@ public interface AlergenoService {
     modeloAlergeno findById(int id);
     modeloAlergeno save(modeloAlergeno alergeno);
     void deleteById(int id);
+	modeloAlergeno findByNombre(String nombre);
 }

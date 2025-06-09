@@ -10,4 +10,7 @@ public interface RelMateriaService {
     modeloRelMateria findById(RelMateriaId id);
     modeloRelMateria save(modeloRelMateria relMateria);
     void deleteById(RelMateriaId id);
+    public List<modeloRelMateria> findByProductoId(int idProducto);
+    public void deleteByProductoId(int idProducto);
+
 }

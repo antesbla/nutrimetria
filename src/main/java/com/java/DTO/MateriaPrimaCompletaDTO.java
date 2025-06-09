@@ -3,88 +3,185 @@ package com.java.DTO;
 import java.util.List;
 
 public class MateriaPrimaCompletaDTO {
+	private int id;
+	private String nombre;
+	private String unidadMedida;
 
-    private String nombre;
-    private String unidadMedida;
+	private Double precio;
+	private Double kcal;
+	private Double hidratos;
+	private Double azucares;
+	private Double grasas;
+	private Double saturadas;
+	private Double proteinas;
+	private Double sal;
+	private Double fibra;
 
-    private Double precio;
-    private Double kcal;
-    private Double hidratos;
-    private Double azucares;
-    private Double grasas;
-    private Double saturadas;
-    private Double proteinas;
-    private Double sal;
-    private Double fibra;
+	private Integer idProveedor;
 
-    private Integer idProveedor;
+	private List<AlérgenoDTO> alergenos;
 
-    private List<AlérgenoDTO> alergenos;
+	private List<IngredienteDTO> ingredientes;
 
-    private List<IngredienteDTO> ingredientes;
+	public String getNombre() {
+		return nombre;
+	}
 
-    public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public String getUnidadMedida() { return unidadMedida; }
-    public void setUnidadMedida(String unidadMedida) { this.unidadMedida = unidadMedida; }
+	public String getUnidadMedida() {
+		return unidadMedida;
+	}
 
-    public Double getPrecio() { return precio; }
-    public void setPrecio(Double precio) { this.precio = precio; }
+	public void setUnidadMedida(String unidadMedida) {
+		this.unidadMedida = unidadMedida;
+	}
 
-    public Double getKcal() { return kcal; }
-    public void setKcal(Double kcal) { this.kcal = kcal; }
+	public Double getPrecio() {
+		return precio;
+	}
 
-    public Double getHidratos() { return hidratos; }
-    public void setHidratos(Double hidratos) { this.hidratos = hidratos; }
+	public void setPrecio(Double precio) {
+		this.precio = precio;
+	}
 
-    public Double getAzucares() { return azucares; }
-    public void setAzucares(Double azucares) { this.azucares = azucares; }
+	public Double getKcal() {
+		return kcal;
+	}
 
-    public Double getGrasas() { return grasas; }
-    public void setGrasas(Double grasas) { this.grasas = grasas; }
+	public void setKcal(Double kcal) {
+		this.kcal = kcal;
+	}
 
-    public Double getSaturadas() { return saturadas; }
-    public void setSaturadas(Double saturadas) { this.saturadas = saturadas; }
+	public Double getHidratos() {
+		return hidratos;
+	}
 
-    public Double getProteinas() { return proteinas; }
-    public void setProteinas(Double proteinas) { this.proteinas = proteinas; }
+	public void setHidratos(Double hidratos) {
+		this.hidratos = hidratos;
+	}
 
-    public Double getSal() { return sal; }
-    public void setSal(Double sal) { this.sal = sal; }
+	public Double getAzucares() {
+		return azucares;
+	}
 
-    public Double getFibra() { return fibra; }
-    public void setFibra(Double fibra) { this.fibra = fibra; }
+	public void setAzucares(Double azucares) {
+		this.azucares = azucares;
+	}
 
-    public Integer getIdProveedor() { return idProveedor; }
-    public void setIdProveedor(Integer idProveedor) { this.idProveedor = idProveedor; }
+	public Double getGrasas() {
+		return grasas;
+	}
 
-    public List<AlérgenoDTO> getAlergenos() { return alergenos; }
-    public void setAlergenos(List<AlérgenoDTO> alergenos) { this.alergenos = alergenos; }
+	public void setGrasas(Double grasas) {
+		this.grasas = grasas;
+	}
 
-    public List<IngredienteDTO> getIngredientes() { return ingredientes; }
-    public void setIngredientes(List<IngredienteDTO> ingredientes) { this.ingredientes = ingredientes; }
+	public Double getSaturadas() {
+		return saturadas;
+	}
 
+	public void setSaturadas(Double saturadas) {
+		this.saturadas = saturadas;
+	}
 
-    public static class AlérgenoDTO {
-        private String nombre;
-        private int tipo; // 1 = alérgeno, 2 = traza
+	public Double getProteinas() {
+		return proteinas;
+	}
 
-        public String getNombre() { return nombre; }
-        public void setNombre(String nombre) { this.nombre = nombre; }
+	public void setProteinas(Double proteinas) {
+		this.proteinas = proteinas;
+	}
 
-        public int getTipo() { return tipo; }
-        public void setTipo(int tipo) { this.tipo = tipo; }
-    }
+	public Double getSal() {
+		return sal;
+	}
 
-    public static class IngredienteDTO {
-        private String nombre;
-        private Double porcentaje;
+	public void setSal(Double sal) {
+		this.sal = sal;
+	}
 
-        public String getNombre() { return nombre; }
-        public void setNombre(String nombre) { this.nombre = nombre; }
+	public Double getFibra() {
+		return fibra;
+	}
 
-        public Double getPorcentaje() { return porcentaje; }
-        public void setPorcentaje(Double porcentaje) { this.porcentaje = porcentaje; }
-    }
+	public void setFibra(Double fibra) {
+		this.fibra = fibra;
+	}
+
+	public Integer getIdProveedor() {
+		return idProveedor;
+	}
+
+	public void setIdProveedor(Integer idProveedor) {
+		this.idProveedor = idProveedor;
+	}
+
+	public List<AlérgenoDTO> getAlergenos() {
+		return alergenos;
+	}
+
+	public void setAlergenos(List<AlérgenoDTO> alergenos) {
+		this.alergenos = alergenos;
+	}
+
+	public List<IngredienteDTO> getIngredientes() {
+		return ingredientes;
+	}
+
+	public void setIngredientes(List<IngredienteDTO> ingredientes) {
+		this.ingredientes = ingredientes;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public static class AlérgenoDTO {
+		private String nombre;
+		private int tipo;
+
+		public String getNombre() {
+			return nombre;
+		}
+
+		public void setNombre(String nombre) {
+			this.nombre = nombre;
+		}
+
+		public int getTipo() {
+			return tipo;
+		}
+
+		public void setTipo(int tipo) {
+			this.tipo = tipo;
+		}
+	}
+
+	public static class IngredienteDTO {
+		private String nombre;
+		private Double porcentaje;
+
+		public String getNombre() {
+			return nombre;
+		}
+
+		public void setNombre(String nombre) {
+			this.nombre = nombre;
+		}
+
+		public Double getPorcentaje() {
+			return porcentaje;
+		}
+
+		public void setPorcentaje(Double porcentaje) {
+			this.porcentaje = porcentaje;
+		}
+	}
 }
