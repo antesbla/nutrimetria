@@ -1,5 +1,6 @@
 package com.java.service.impl;
 
+import com.java.DTO.UsuarioDetalleDTO;
 import com.java.model.modeloUsuarios;
 import com.java.repository.UsuariosRepository;
 import com.java.service.UsuariosService;
@@ -49,15 +50,11 @@ public class UsuariosServiceImpl implements UsuariosService, UserDetailsService 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         modeloUsuarios usuario = repository.findByUsuario(username)
-                .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado: " + username));
+            .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado: " + username));
 
-        // Se asume que el campo `rol` existe y es tipo String como "ADMIN" o "USER"
-        return new User(
-                usuario.getUsuario(),
-                usuario.getClave(),
-                Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + usuario.getPermisos()))
-        );
+        return new UsuarioDetalleDTO(usuario.getUsuario(), usuario.getClave(), usuario.getPermisos());
     }
+
 
     @Autowired
     private UsuariosRepository usuariosRepository;

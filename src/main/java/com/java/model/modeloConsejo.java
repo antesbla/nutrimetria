@@ -19,4 +19,29 @@ public class modeloConsejo {
 	
 	@Column(name = "consejo", nullable = false)
 	private String consejo;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getConsejo() {
+		return consejo;
+	}
+
+	public void setConsejo(String consejo) {
+		this.consejo = consejo;
+	}
+
+	@Override
+	public String toString() {
+		return consejo;
+	}
+	
+	
+	
+	
 }

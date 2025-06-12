@@ -17,6 +17,8 @@ import java.util.Set;
 import javax.imageio.ImageIO;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 import javafx.application.Platform;
@@ -25,27 +27,33 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.SnapshotParameters;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import com.itextpdf.kernel.pdf.*;
 import com.itextpdf.layout.*;
 import com.itextpdf.layout.element.Image;
+import com.java.DTO.UsuarioDetalleDTO;
 import com.java.model.DatosFijosFicha;
 import com.java.model.modeloMateriasPrimas;
 import com.java.model.modeloProducto;
 import com.java.model.modeloRelAlergeno;
+import com.java.model.modeloRelIngrediente;
 import com.java.model.modeloRelMateria;
 import com.java.model.modeloRelProveedor;
 import com.java.service.impl.DatosFicTecServiceImpl;
 import com.java.service.impl.ProductoServiceImpl;
 import com.java.service.impl.RelAlergenoServiceImpl;
+import com.java.service.impl.RelIngredienteServiceImpl;
 import com.java.service.impl.RelMateriaServiceImpl;
 import com.java.service.impl.RelProveedorServiceImpl;
 import com.itextpdf.io.image.ImageDataFactory;
@@ -62,6 +70,7 @@ public class ControladorFichaTecnica implements Initializable{
     @Autowired private ProductoServiceImpl servicioProducto;
     @Autowired private RelAlergenoServiceImpl servicioRelAlergenoMaterias;
     @Autowired private RelMateriaServiceImpl servicioRelMaterias;
+    @Autowired private RelIngredienteServiceImpl servicioRelIngredientes;
     @Autowired private RelProveedorServiceImpl servicioRelProveedor;
     @Autowired private DatosFicTecServiceImpl servicioFichaTec;
     
@@ -77,12 +86,30 @@ public class ControladorFichaTecnica implements Initializable{
     
     @FXML private TextArea txtEtiquetado;
     
-    private final Map<Label, String> campoLabelMap = new HashMap();
+    @FXML Pane paneMaterias, paneProductos, paneProveedor;
+    
+    private final Map<Label, String> campoLabelMap = new HashMap<>();
 
     String nombreArchivo;
-
+    int permiso;
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+    	
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+        if (auth != null && auth.isAuthenticated()) {
+            UsuarioDetalleDTO detalles = (UsuarioDetalleDTO) auth.getPrincipal();
+            permiso = detalles.getPermisos();
+
+            System.out.println("Permiso en ventana fichaTecnica: " + permiso);
+
+            if (permiso != 1) {
+            	paneMaterias.setVisible(false);
+            	paneProductos.setVisible(false);
+            	paneProveedor.setVisible(false);
+            }
+        }
+    	
         listaProductos.setItems(FXCollections.observableArrayList(servicioProducto.findAll()));
         DatosFijosFicha datos = servicioFichaTec.obtener();
 
@@ -148,23 +175,35 @@ public class ControladorFichaTecnica implements Initializable{
                 	    "vinagre de vino", "altramuces", "grano de altramuz", "mejillón", "calamar", "ostra"
                 	));
 
-                List<modeloRelMateria> materias = servicioRelMaterias.findByProductoId(idProd);
-                materias.sort(Comparator.comparingDouble(modeloRelMateria::getCantidad).reversed());
-                
-                	StringBuilder sb = new StringBuilder();
-                	for (modeloRelMateria rel : materias) {
-                	    String nombreMateria = rel.getMateriaPrima().getNombre();
+             List<modeloRelMateria> materias = servicioRelMaterias.findByProductoId(idProd);
+             materias.sort(Comparator.comparingDouble(modeloRelMateria::getCantidad).reversed());
 
-                	    // Buscar y poner en mayúsculas si contiene alguna palabra de alérgeno
-                	    for (String alergeno : alergenos) {
-                	        if (nombreMateria.toLowerCase().contains(alergeno)) {
-                	            nombreMateria = nombreMateria.replaceAll("(?i)\\b" + alergeno + "\\b", alergeno.toUpperCase());
-                	        }
-                	    }
+             StringBuilder sb = new StringBuilder();
 
-                	    if (!sb.isEmpty()) sb.append(", ");
-                	    sb.append(nombreMateria);
-                	}
+             for (modeloRelMateria rel : materias) {
+                 List<modeloRelIngrediente> ingredientesRelacionados = servicioRelIngredientes.findByMateriaPrimaId(rel.getMateriaPrima().getId());
+
+                 for (modeloRelIngrediente relIng : ingredientesRelacionados) {
+                     String nombreIngrediente = relIng.getIngrediente().getNombre();
+
+                     for (String alergeno : alergenos) {
+                         if (nombreIngrediente.toLowerCase().contains(alergeno)) {
+                             nombreIngrediente = nombreIngrediente.replaceAll("(?i)\\b" + alergeno + "\\b", alergeno.toUpperCase());
+                         }
+                     }
+
+                     if (!sb.toString().contains(nombreIngrediente)) {
+                         if (!sb.isEmpty()) {
+                             sb.append(", ");
+                         }
+                         sb.append(nombreIngrediente);
+                     }
+                 }
+             }
+
+             // Al final, establece el texto en el label:
+             labelMateriasOrdenadas.setText(sb.toString());
+
 
                 
                 labelKcal.setText(String.format("%.2f KCal", kcal));
@@ -187,25 +226,26 @@ public class ControladorFichaTecnica implements Initializable{
                 String trazas = trazasContiene.toString().replaceAll(", $", "");
                 
                 labelMateriasOrdenadas.setText(sb.toString() + "\nContiene: " + contiene + "\nPuede contener trazas de: " + trazas);
-
-                
-                campoLabelMap.put(labelOgmEditable, "textoOgm");
-                campoLabelMap.put(labelNombreEmpresaEditable, "nombreEmpresa");
-                campoLabelMap.put(labelDireccionEditable, "direccion");
-                campoLabelMap.put(labelLoteadoEditable, "loteadoDescripcion");
-                campoLabelMap.put(labelClasifLegal, "clasifLegal");
-                campoLabelMap.put(labelMarcasComerc, "etiquetadoBase");
-                campoLabelMap.put(labelOtrosEditable, "textoOtros");
-                campoLabelMap.put(labelReglasLoteado, "reglasLoteado");
-                campoLabelMap.put(labelProcesado, "procesado");
-                campoLabelMap.put(labelEnvasado, "envasado");
-                campoLabelMap.put(labelMicrobiolog, "microbiolog");
-
             }
         });
+        inicializarCampoLabelMap();
     }
     
-	
+    private void inicializarCampoLabelMap() {
+        campoLabelMap.put(labelOgmEditable, "textoOgm");
+        campoLabelMap.put(labelNombreEmpresaEditable, "nombreEmpresa");
+        campoLabelMap.put(labelDireccionEditable, "direccion");
+        campoLabelMap.put(labelLoteadoEditable, "loteadoDescripcion");
+        campoLabelMap.put(labelClasifLegal, "clasifLegal");
+        campoLabelMap.put(labelMarcasComerc, "etiquetadoBase");
+        campoLabelMap.put(labelOtrosEditable, "textoOtros");
+        campoLabelMap.put(labelReglasLoteado, "reglasLoteado");
+        campoLabelMap.put(labelProcesado, "procesado");
+        campoLabelMap.put(labelEnvasado, "envasado");
+        campoLabelMap.put(labelMicrobiolog, "microbiolog");
+    }
+
+    
     @FXML
     private void exportarFichaTecnica(){
         try {
@@ -491,21 +531,70 @@ public class ControladorFichaTecnica implements Initializable{
         return campoLabelMap.getOrDefault(label, "campo_desconocido");
     }
 
+    private final Map<String, String> nombresCampo = Map.ofEntries(
+    	    Map.entry("textoOgm", "Texto sobre Organismos Genéticamente Modificados"),
+    	    Map.entry("nombreEmpresa", "Nombre de la empresa"),
+    	    Map.entry("direccion", "Dirección"),
+    	    Map.entry("loteadoDescripcion", "Descripción del loteado"),
+    	    Map.entry("clasifLegal", "Clasificación legal"),
+    	    Map.entry("etiquetadoBase", "Etiquetado base"),
+    	    Map.entry("textoOtros", "Otros"),
+    	    Map.entry("reglasLoteado", "Reglas de loteado"),
+    	    Map.entry("procesado", "Procesado"),
+    	    Map.entry("envasado", "Envasado"),
+    	    Map.entry("microbiolog", "Criterios microbiológicos")
+    	);
+
+
+    private String obtenerNombreCampo(String campoTecnico) {
+        return nombresCampo.getOrDefault(campoTecnico, campoTecnico);
+    }
+
+    
     @FXML
     private void abrirEditorTexto(javafx.scene.input.MouseEvent event) {
-        Label label = (Label) event.getSource();
-        String campoBaseDatos = obtenerCampoBaseDatos(label);
+        if (permiso == 1) {
+            Label label = (Label) event.getSource();
+            String campoBaseDatos = obtenerCampoBaseDatos(label);
 
-        TextInputDialog dialog = new TextInputDialog(label.getText());
-        dialog.setTitle("Editar campo");
-        dialog.setHeaderText("Modificar " + campoBaseDatos);
-        dialog.setContentText("Nuevo valor:");
+            // Crear un nuevo diálogo personalizado
+            Dialog<String> dialog = new Dialog<>();
+            dialog.setTitle("Editar campo");
+            String nombreVisible = obtenerNombreCampo(campoBaseDatos);
+            dialog.setHeaderText("Modificar " + nombreVisible);
 
-        dialog.showAndWait().ifPresent(nuevoTexto -> {
-            servicioFichaTec.actualizarCampo(campoBaseDatos, nuevoTexto);
-            label.setText(nuevoTexto);
-        });
+            // Crear los botones OK y CANCEL
+            dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
+
+            // Crear un TextArea grande y con el texto actual del label
+            TextArea textArea = new TextArea(label.getText());
+            textArea.setWrapText(true);
+            textArea.setPrefWidth(400);
+            textArea.setPrefHeight(200);
+
+            dialog.getDialogPane().setContent(textArea);
+
+            textArea.setStyle("-fx-font-size: 14px; -fx-border-color: #ccc; -fx-border-radius: 5; -fx-background-color: #f9f9f9;");
+            dialog.getDialogPane().setStyle("-fx-background-color: #F9E9D0; -fx-border-color: #E5A743; -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;");
+            dialog.getDialogPane().lookup(".header-panel")
+            .setStyle("-fx-background-color: #F9E9D0;");
+
+            
+            // Convertir el resultado del botón OK en el nuevo texto
+            dialog.setResultConverter(dialogButton -> {
+                if (dialogButton == ButtonType.OK) {
+                    return textArea.getText();
+                }
+                return null;
+            });
+
+            dialog.showAndWait().ifPresent(nuevoTexto -> {
+                servicioFichaTec.actualizarCampo(campoBaseDatos, nuevoTexto);
+                label.setText(nuevoTexto);
+            });
+        }
     }
+
 
     
     private void setLabelSiTieneValor(Label label, String valorBBDD) {

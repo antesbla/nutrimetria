@@ -35,4 +35,11 @@ public class RelIngredienteServiceImpl implements RelIngredienteService {
     public void deleteById(RelIngredienteId id) {
         repository.deleteById(id);
     }
+
+	@Override
+	public List<modeloRelIngrediente> findByMateriaPrimaId(int idMateria) {
+		return repository.findByMateriaPrimaId(idMateria);
+	}
+    
+
 }

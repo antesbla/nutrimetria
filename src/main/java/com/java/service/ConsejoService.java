@@ -9,4 +9,5 @@ public interface ConsejoService {
     modeloConsejo findById(int id);
     modeloConsejo save(modeloConsejo consejo);
     void deleteById(int id);
+    modeloConsejo findByConsejo(String texto);
 }

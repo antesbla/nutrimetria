@@ -10,4 +10,6 @@ public interface RelIngredienteService {
     modeloRelIngrediente findById(RelIngredienteId id);
     modeloRelIngrediente save(modeloRelIngrediente relIngrediente);
     void deleteById(RelIngredienteId id);
+    List<modeloRelIngrediente> findByMateriaPrimaId(int idMateria);
+
 }

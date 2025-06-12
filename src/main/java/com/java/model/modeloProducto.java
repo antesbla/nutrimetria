@@ -50,9 +50,6 @@ public class modeloProducto {
 	
 	@Column(name = "peso_caja")
 	private double peso_caja;
-	
-	@Column(name = "cod_barras", unique = true)
-	private String cod_barras;
 
 	public int getId() {
 		return id;
@@ -148,14 +145,6 @@ public class modeloProducto {
 
 	public void setPeso_caja(double peso_caja) {
 		this.peso_caja = peso_caja;
-	}
-
-	public String getCod_barras() {
-		return cod_barras;
-	}
-
-	public void setCod_barras(String cod_barras) {
-		this.cod_barras = cod_barras;
 	}
 
 	@Override

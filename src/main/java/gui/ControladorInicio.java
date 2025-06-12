@@ -8,6 +8,8 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Component;
 
+import com.java.DTO.UsuarioDetalleDTO;
+
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -33,21 +35,24 @@ public class ControladorInicio {
 	
 	@FXML
 	private void IniciarSesion() {
-        try {
-            Authentication auth = authManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                    nombreUsuario.getText(),
-                    password.getText()
-                )
-            );
-            SecurityContextHolder.getContext().setAuthentication(auth);
-            CambiarVentana();
-        } catch (AuthenticationException e) {
-        	mostrarAlertaError("Credenciales incorrectas", "Usuario o contraseña inválidos.");
-        } catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Authentication auth = authManager.authenticate(
+			    new UsernamePasswordAuthenticationToken(nombreUsuario.getText(), password.getText())
+			);
+			SecurityContextHolder.getContext().setAuthentication(auth);
+
+			// Acceder al permiso directamente
+			UsuarioDetalleDTO detalles = (UsuarioDetalleDTO) auth.getPrincipal();
+			int permiso = detalles.getPermisos();
+
+			System.out.println("Permiso del usuario logueado: " + permiso);
+
+			try {
+				CambiarVentana();
+			} catch (Exception e) {
+				e.printStackTrace();
+				mostrarAlertaError("Login incorrecto", "Usuario o contraseña incorrecto");
+			}
+
 	}
 
 	private void mostrarAlertaError(String titulo, String mensaje) {

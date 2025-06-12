@@ -75,24 +75,24 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="20.0" prefWidth="517.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="SISTEMA DE LOTEADO:" textFill="#e5a743" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="21">
+                  <Label prefHeight="20.0" prefWidth="517.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="SISTEMA DE LOTEADO:" textFill="#e5a743" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="20">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="20.0" prefWidth="493.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="CONDICIONES DE ALMACENAMIENTO:" textFill="#e5a743" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="17">
+                  <Label prefHeight="20.0" prefWidth="493.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="CONDICIONES DE ALMACENAMIENTO:" textFill="#e5a743" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="16">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="20.0" prefWidth="556.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="CONDICIONES DE TRANSPORTE:" textFill="#e5a743" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="19">
+                  <Label prefHeight="20.0" prefWidth="556.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="CONDICIONES DE TRANSPORTE:" textFill="#e5a743" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="18">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
                   <Label fx:id="labelEtiquetado" alignment="CENTER" contentDisplay="CENTER" prefHeight="19.0" prefWidth="527.0" style="-fx-border-width: 1.5 0 0 0; -fx-border-color: black;" text="selecciona producto" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
                   <Label fx:id="labelNombreEmpresaEditable" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#abrirEditorTexto" prefHeight="20.0" prefWidth="488.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="Pulsa aquí para rellenar (Nombre de la Empresa)" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="14" />
-                  <Label fx:id="labelTransporte" alignment="CENTER" prefHeight="0.0" prefWidth="480.0" text="selecciona producto" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="20" />
+                  <Label fx:id="labelTransporte" alignment="CENTER" prefHeight="0.0" prefWidth="480.0" text="selecciona producto" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="19" />
                   <Label fx:id="labelDireccionEditable" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#abrirEditorTexto" prefHeight="20.0" prefWidth="479.0" text="Pulsa aquí para rellenar (Dirección de la Empresa)" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="15" />
                   <Label text="2/2" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="37">
                      <padding>
@@ -100,27 +100,26 @@
                      </padding>
                   </Label>
                   <Label fx:id="labelReglasLoteado" alignment="TOP_CENTER" contentDisplay="CENTER" onMouseClicked="#abrirEditorTexto" prefHeight="101.0" prefWidth="480.0" text="Pulsa aquí para rellenar (reglas de fromación del loteado)" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="11" GridPane.rowSpan="3" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#abrirEditorTexto" prefHeight="20.0" prefWidth="479.0" text="selecciona producto" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="16" />
-                  <Label fx:id="labelCondAlmac" alignment="CENTER" prefHeight="0.0" prefWidth="480.0" text="selecciona producto" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="18" />
-                  <Label fx:id="labelLoteadoEditable" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#abrirEditorTexto" prefHeight="0.0" prefWidth="480.0" text="Pulsa aquí para rellenar" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="22" />
-                  <Label prefHeight="20.0" prefWidth="517.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="OGM:" textFill="#e5a743" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="23">
+                  <Label fx:id="labelCondAlmac" alignment="CENTER" prefHeight="0.0" prefWidth="480.0" text="selecciona producto" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="17" />
+                  <Label fx:id="labelLoteadoEditable" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#abrirEditorTexto" prefHeight="0.0" prefWidth="480.0" text="Pulsa aquí para rellenar" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="21" />
+                  <Label prefHeight="20.0" prefWidth="517.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="OGM:" textFill="#e5a743" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="22">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelOgmEditable" alignment="TOP_LEFT" contentDisplay="CENTER" onMouseClicked="#abrirEditorTexto" prefHeight="149.0" prefWidth="480.0" text="Pulsa aquí para rellenar (Organismos genéticamente modificados)" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="24" GridPane.rowSpan="6" />
-                  <Label prefHeight="20.0" prefWidth="517.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="OTROS:" textFill="#e5a743" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="30">
+                  <Label fx:id="labelOgmEditable" alignment="TOP_LEFT" contentDisplay="CENTER" onMouseClicked="#abrirEditorTexto" prefHeight="149.0" prefWidth="480.0" text="Pulsa aquí para rellenar (Organismos genéticamente modificados)" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="23" GridPane.rowSpan="6" />
+                  <Label prefHeight="20.0" prefWidth="517.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="OTROS:" textFill="#e5a743" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="29">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelOtrosEditable" alignment="CENTER" onMouseClicked="#abrirEditorTexto" prefHeight="51.0" prefWidth="480.0" text="Pulsa aquí para rellenar" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="31" GridPane.rowSpan="2" />
-                  <Label prefHeight="20.0" prefWidth="517.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="DURABILIDAD:" textFill="#e5a743" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="33">
+                  <Label fx:id="labelOtrosEditable" alignment="CENTER" onMouseClicked="#abrirEditorTexto" prefHeight="51.0" prefWidth="480.0" text="Pulsa aquí para rellenar" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="30" GridPane.rowSpan="2" />
+                  <Label prefHeight="20.0" prefWidth="517.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="DURABILIDAD:" textFill="#e5a743" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="32">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelDurabilidad" alignment="CENTER" prefHeight="51.0" prefWidth="480.0" text="selecciona producto" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="34" />
+                  <Label fx:id="labelDurabilidad" alignment="CENTER" prefHeight="51.0" prefWidth="480.0" text="selecciona producto" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="33" />
                   <Label fx:id="labelMateriasOrdenadas" contentDisplay="CENTER" prefHeight="163.0" prefWidth="480.0" text="selecciona producto" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="7" GridPane.rowSpan="4" />
                   <Label prefHeight="20.0" prefWidth="556.0" style="-fx-border-color: black; -fx-border-width: 1.5 0 0 0;" text="PRESENTACIÓN Y ENVASADO" textFill="#e5a743" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
                      <font>
@@ -153,7 +152,7 @@
                </font>
             </Label>
          </children></Pane>
-      <Pane layoutX="420.0" layoutY="14.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: F1F1F1; -fx-border-color: black; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+      <Pane fx:id="paneMaterias" layoutX="420.0" layoutY="14.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: F1F1F1; -fx-border-color: black; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
          <children>
             <Button layoutX="11.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#Materias" prefHeight="34.0" prefWidth="178.0" style="-fx-border-color: black; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: white;" text="Materias Primas">
                <font>
@@ -197,7 +196,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="623.0" layoutY="14.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: F1F1F1; -fx-border-color: black; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+      <Pane fx:id="paneProductos" layoutX="623.0" layoutY="14.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: F1F1F1; -fx-border-color: black; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
          <children>
             <Button layoutX="11.0" layoutY="11.0" mnemonicParsing="false" onMouseClicked="#Productos" prefHeight="34.0" prefWidth="178.0" style="-fx-border-color: black; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: white;" text="Productos">
                <font>
@@ -206,7 +205,7 @@
             </Button>
          </children>
       </Pane>
-      <Pane layoutX="826.0" layoutY="13.0" onMouseClicked="#Proveedor" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: F1F1F1; -fx-border-color: black; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
+      <Pane fx:id="paneProveedor" layoutX="826.0" layoutY="13.0" onMouseClicked="#Proveedor" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: F1F1F1; -fx-border-color: black; -fx-border-width: 2 2 0 2; -fx-border-radius: 10 10 0 0; -fx-background-radius: 10 10 0 0;">
          <children>
             <Button layoutX="10.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#Proveedor" prefHeight="34.0" prefWidth="178.0" style="-fx-border-color: black; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: white;" text="Proveedores">
                <font>

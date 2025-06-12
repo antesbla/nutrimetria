@@ -8,6 +8,7 @@ import com.java.repository.ConsejoRepository;
 import com.java.service.ConsejoService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ConsejoServiceImpl implements ConsejoService {
@@ -33,5 +34,10 @@ public class ConsejoServiceImpl implements ConsejoService {
     @Override
     public void deleteById(int id) {
         repository.deleteById(id);
+    }
+    
+    @Override
+    public modeloConsejo findByConsejo(String texto) {
+        return repository.findByConsejoIgnoreCase(texto.trim()).orElse(null);
     }
 }

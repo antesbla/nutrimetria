@@ -12,11 +12,17 @@ import org.springframework.stereotype.Component;
 import com.java.DTO.IngredientesDTO;
 import com.java.DTO.MateriaCantidadDTO;
 import com.java.DTO.MateriasProveedorRelProvDTO;
+import com.java.model.RelConsejoId;
 import com.java.model.RelMateriaId;
+import com.java.model.modeloConsejo;
+import com.java.model.modeloIngredientes;
 import com.java.model.modeloMateriasPrimas;
 import com.java.model.modeloProducto;
 import com.java.model.modeloProveedor;
+import com.java.model.modeloRelConsejo;
 import com.java.model.modeloRelMateria;
+import com.java.service.RelConsejoService;
+import com.java.service.impl.ConsejoServiceImpl;
 import com.java.service.impl.MateriasPrimasServiceImpl;
 import com.java.service.impl.ProductoServiceImpl;
 import com.java.service.impl.RelMateriaServiceImpl;
@@ -41,6 +47,8 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.scene.control.CheckBox;
+
 
 @Component
 public class ControladorProducto implements Initializable{
@@ -67,27 +75,114 @@ public class ControladorProducto implements Initializable{
 	@FXML private TextField txtDurabilidad, txtTransporte, txtCondAlmac, txtComposicion, txtUniCajas, txtPesoCaja, txtCodBarras;
 	
 	@FXML private ListView<MateriaCantidadDTO> listaMateriasPrimas;
+	@FXML private ListView<String> listaConsejos;
 	
 	@FXML private Label txtAlerta;
+	
+	@FXML private CheckBox checkNuevoConsejo;
+	@FXML private TextField txtNuevoConsejo;
+	@FXML private ComboBox<modeloConsejo> consejos;
 	
 	@Autowired private ProductoServiceImpl servicioProducto;
 	@Autowired private MateriasPrimasServiceImpl servicioMaterias;
 	@Autowired private RelMateriaServiceImpl servicioRelMateria;
+	@Autowired private ConsejoServiceImpl servicioConsejos;
+	@Autowired private RelConsejoService servicioRelConsejo;
+
 
 	private modeloProducto productoEnEdicion = null;
 		
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		rellenarTabla();
-		List<MateriasProveedorRelProvDTO> mat = servicioMaterias.datosMatP();
-	    materias.setItems(FXCollections.observableArrayList(mat));
+		
+		List<MateriasProveedorRelProvDTO> cons = servicioMaterias.datosMatP();
+	    materias.setItems(FXCollections.observableArrayList(cons));
+	    
+	    
+	    List<modeloConsejo> prov = servicioConsejos.findAll();
+	    consejos.setItems(FXCollections.observableArrayList(prov));
+	    
 	    materias.getSelectionModel().selectedItemProperty().addListener((unidad, valorViejo, valorNuevo) -> {
 	    });
 	    
 		campoBusqueda.textProperty().addListener((observable, oldValue, newValue) -> {
 			filtrarTablaProductos(newValue);
 		});
+		
+		
+		checkNuevoConsejo.selectedProperty().addListener((prop, oldVal, nuevaSeleccion) -> {
+            consejos.setVisible(!nuevaSeleccion);
+            consejos.setManaged(!nuevaSeleccion);
+            consejos.setDisable(nuevaSeleccion);
+
+            txtNuevoConsejo.setVisible(nuevaSeleccion);
+            txtNuevoConsejo.setManaged(nuevaSeleccion);
+            txtNuevoConsejo.setDisable(!nuevaSeleccion);
+        });
+
 	}
+	
+	@FXML
+    private void agregarConsejo() {
+
+        if (!checkNuevoConsejo.isSelected()) {
+            modeloConsejo seleccionado = consejos.getValue();
+            if (seleccionado == null) {
+            	mostrarAdvertencia("No has seleccionado ningún ingrediente.");
+                return;
+            }
+
+            String nombre = seleccionado.getConsejo();
+            String texto =  nombre;
+
+            if (!listaConsejos.getItems().contains(texto)) {
+                listaConsejos.getItems().add(texto);
+                consejos.getItems().remove(seleccionado);
+            }
+
+            consejos.getSelectionModel().clearSelection();
+            checkNuevoConsejo.setSelected(false);
+        } else {
+            String nombreNuevo = txtNuevoConsejo.getText().trim();
+            if (nombreNuevo.isEmpty()) {
+            	txtAlerta.setText("Nombre de ingrediente vacío.");
+                return;
+            }
+
+            String texto = nombreNuevo;
+
+            if (!listaConsejos.getItems().contains(texto)) {
+                listaConsejos.getItems().add(texto);
+            }
+
+            txtNuevoConsejo.clear();
+            checkNuevoConsejo.setSelected(false);
+        }
+    }
+	
+	 @FXML
+	    private void eliminarConsejo() {
+	        String seleccionado = listaConsejos.getSelectionModel().getSelectedItem();
+	        if (seleccionado != null) {
+	            listaConsejos.getItems().remove(seleccionado);
+
+	            String nombre = seleccionado.contains("(")
+	                    ? seleccionado.substring(0, seleccionado.indexOf(" (")).trim()
+	                    : seleccionado.trim();
+
+	            servicioConsejos.findAll().stream()
+	                .filter(ing -> ing.getConsejo().equals(nombre))
+	                .findFirst()
+	                .ifPresent(ing -> {
+	                    if (!consejos.getItems().contains(ing)) {
+	                        consejos.getItems().add(ing);
+	                    }
+	                });
+	        } else {
+	        	mostrarAdvertencia("No has seleccionado ningun ingrediente para eliminar");
+	        }
+	    }
 	
 	public void rellenarTabla() {
 		this.colCodProd.setCellValueFactory(new PropertyValueFactory<>("cod_prod"));
@@ -181,7 +276,6 @@ public class ControladorProducto implements Initializable{
 
 	        mp.setCod_prod(Integer.parseInt(txtCodProd.getText()));
 	        mp.setNombre(txtNombre.getText());
-	        mp.setDescripcion(txtDescripcion.getText());
 	        mp.setPeso(Double.parseDouble(txtPesoProd.getText()));
 	        mp.setCat_legal(txtCatLegal.getText());
 	        mp.setDurabilidad(txtDurabilidad.getText());
@@ -190,7 +284,6 @@ public class ControladorProducto implements Initializable{
 	        mp.setComposicion(txtComposicion.getText());
 	        mp.setUnidad_caja(Integer.parseInt(txtUniCajas.getText()));
 	        mp.setPeso_caja(Double.parseDouble(txtPesoCaja.getText()));
-	        mp.setCod_barras(txtCodBarras.getText());
 
 	        servicioProducto.save(mp);
 
@@ -210,6 +303,33 @@ public class ControladorProducto implements Initializable{
 
 	            servicioRelMateria.save(rel);
 	        }
+	        
+	     // Eliminar relaciones anteriores
+	        servicioRelConsejo.eliminarRelacionesPorProducto(mp.getId());
+
+	        // Recorrer consejos actuales
+	        for (String textoConsejo : listaConsejos.getItems()) {
+	            // Buscar consejo existente o crear uno nuevo
+	            modeloConsejo consejo = servicioConsejos.findByConsejo(textoConsejo.trim());
+	            if (consejo == null) {
+	                consejo = new modeloConsejo();
+	                consejo.setConsejo(textoConsejo.trim());
+	                consejo = servicioConsejos.save(consejo);
+	            }
+
+	            // Crear relación
+	            RelConsejoId relId = new RelConsejoId();
+	            relId.setProducto(mp.getId());
+	            relId.setConsejo(consejo.getId());
+
+	            modeloRelConsejo rel = new modeloRelConsejo();
+	            rel.setId(relId);
+	            rel.setProducto(mp);
+	            rel.setConsejo(consejo);
+
+	            servicioRelConsejo.save(rel);
+	        }
+
 
 	        mostrarAdvertencia(esNuevo ? "Producto guardado correctamente." : "Producto modificado correctamente.");
 	        rellenarTabla();
@@ -247,12 +367,25 @@ public class ControladorProducto implements Initializable{
 	        mostrarAdvertencia("Producto no encontrado.");
 	        return;
 	    }
+	    
+	    // Limpiar consejos anteriores
+	    listaConsejos.getItems().clear();
+
+	    // Cargar relaciones desde BBDD
+	    List<modeloRelConsejo> relacionesConsejos = servicioRelConsejo.findByProductoId(producto.getId());
+
+	    for (modeloRelConsejo rel : relacionesConsejos) {
+	        listaConsejos.getItems().add(rel.getConsejo().getConsejo());
+
+	        // Para evitar duplicados en el combo
+	        consejos.getItems().removeIf(c -> c.getId() == rel.getConsejo().getId());
+	    }
+
 
 	    formAggProd.setVisible(true);
 
 	    txtCodProd.setText(String.valueOf(producto.getCod_prod()));
 	    txtNombre.setText(producto.getNombre());
-	    txtDescripcion.setText(producto.getDescripcion());
 	    txtPesoProd.setText(String.valueOf(producto.getPeso()));
 	    txtCatLegal.setText(producto.getCat_legal());
 	    txtDurabilidad.setText(producto.getDurabilidad());
@@ -261,7 +394,6 @@ public class ControladorProducto implements Initializable{
 	    txtComposicion.setText(producto.getComposicion());
 	    txtUniCajas.setText(String.valueOf(producto.getUnidad_caja()));
 	    txtPesoCaja.setText(String.valueOf(producto.getPeso_caja()));
-	    txtCodBarras.setText(producto.getCod_barras());
 
 	    listaMateriasPrimas.getItems().clear();
 	    List<modeloRelMateria> relaciones = servicioRelMateria.findByProductoId(producto.getId());

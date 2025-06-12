@@ -10,4 +10,6 @@ import com.java.model.modeloRelIngrediente;
 public interface RelIngredienteRepository extends JpaRepository<modeloRelIngrediente, RelIngredienteId> {
 	List<modeloRelIngrediente> findByMateriaPrima_Id(int id);
 	void deleteByMateriaPrima_Id(int id);
+    List<modeloRelIngrediente> findByMateriaPrimaId(int idMateria);
 }
+
