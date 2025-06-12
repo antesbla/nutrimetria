@@ -340,10 +340,6 @@ public class ControladorFormAggMatPrim {
         }
 
         String unidadSeleccionada = comboBoxUnidadMedida.getValue();
-        /*nombre.toLowerCase();
-        if (nombre == "agua") {
-        	unidadSeleccionada = "Litros";
-        }*/
         
         
         modeloProveedor proveedor = comboBoxProveedor.getValue();

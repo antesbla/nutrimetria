@@ -310,16 +310,4 @@ public class ControladorEtiquetado implements Initializable {
     private void Productos() throws Exception {
         JavaFxApp.setRoot("productos");
     }
-
-	
-	/*private void mostrarAdvertencia(String mensaje) {
-        txtAlerta.setText(mensaje);
-        txtAlerta.setVisible(true);
-
-        Timeline timeline = new Timeline(
-            new KeyFrame(Duration.seconds(3), e -> txtAlerta.setVisible(false))
-        );
-        timeline.setCycleCount(1);
-        timeline.play();        
-    }*/
 }

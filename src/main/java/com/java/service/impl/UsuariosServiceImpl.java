@@ -35,7 +35,6 @@ public class UsuariosServiceImpl implements UsuariosService, UserDetailsService 
 
     @Override
     public modeloUsuarios save(modeloUsuarios usuario) {
-        // Asegurarse de que la contraseña esté cifrada
         usuario.setClave(passwordEncoder.encode(usuario.getClave()));
         return repository.save(usuario);
     }
@@ -45,7 +44,6 @@ public class UsuariosServiceImpl implements UsuariosService, UserDetailsService 
         repository.deleteById(id);
     }
 
-    // Método requerido por Spring Security
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         modeloUsuarios usuario = repository.findByUsuario(username)
@@ -58,16 +56,16 @@ public class UsuariosServiceImpl implements UsuariosService, UserDetailsService 
     @Autowired
     private UsuariosRepository usuariosRepository;
 
-    @PostConstruct // se ejecuta al iniciar la aplicación (solo para pruebas)
+    @PostConstruct 
     public void crearUsuarioTest() {
-        if (usuariosRepository.findByUsuario("admin").isEmpty()) {
+        if (usuariosRepository.findByUsuario("usuario").isEmpty()) {
             modeloUsuarios usuario = new modeloUsuarios();
-            usuario.setUsuario("admin");
-            usuario.setClave(passwordEncoder.encode("admin123")); // cifrada
-            usuario.setPermisos(1); // o el valor que uses para admin
+            usuario.setUsuario("usuario");
+            usuario.setClave(passwordEncoder.encode("usuario123")); 
+            usuario.setPermisos(1); 
 
             usuariosRepository.save(usuario);
-            System.out.println("Usuario admin creado.");
+            System.out.println("Usuario usuario creado.");
         }
     }
 }

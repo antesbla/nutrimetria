@@ -39,7 +39,6 @@ public class ControladorInicio {
 			);
 			SecurityContextHolder.getContext().setAuthentication(auth);
 
-			// Acceder al permiso directamente
 			UsuarioDetalleDTO detalles = (UsuarioDetalleDTO) auth.getPrincipal();
 			int permiso = detalles.getPermisos();
 

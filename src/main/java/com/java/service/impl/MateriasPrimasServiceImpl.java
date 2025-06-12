@@ -95,22 +95,19 @@ public class MateriasPrimasServiceImpl implements MateriasPrimasService {
 
     
     public void guardarMateriaPrimaDesdeDTO(MateriaPrimaCompletaDTO dto) {
-        // 1. Crear y guardar la materia prima
         modeloMateriasPrimas materia = new modeloMateriasPrimas();
         materia.setNombre(dto.getNombre());
         materia.setUnidad_medida(dto.getUnidadMedida());
 
         modeloMateriasPrimas materiaGuardada = repositorioMaterias.save(materia);
 
-        // 2. Obtener proveedor
         modeloProveedor proveedor = repositorioProveedor.findById(dto.getIdProveedor())
             .orElseThrow(() -> new RuntimeException("Proveedor no encontrado"));
 
-        // 3. Crear relación proveedor-materia con ID compuesto
         RelProveedorId relId = new RelProveedorId(materiaGuardada.getId(), proveedor.getId());
 
         modeloRelProveedor relProveedor = new modeloRelProveedor();
-        relProveedor.setId(relId); // ✅ ¡esto era lo que faltaba!
+        relProveedor.setId(relId); 
         relProveedor.setMateriaPrima(materiaGuardada);
         relProveedor.setProveedor(proveedor);
         relProveedor.setPrecio(dto.getPrecio());
@@ -123,9 +120,8 @@ public class MateriasPrimasServiceImpl implements MateriasPrimasService {
         relProveedor.setSal(dto.getSal());
         relProveedor.setFibra(dto.getFibra());
 
-        repositorioRelProveedor.save(relProveedor); // ❌ Fallaba aquí si no ponías setId
+        repositorioRelProveedor.save(relProveedor); 
 
-        // 4. Guardar alérgenos
         for (MateriaPrimaCompletaDTO.AlérgenoDTO alergenoDTO : dto.getAlergenos()) {
             modeloAlergeno alergeno = repositorioAlergeno.findByNombre(alergenoDTO.getNombre())
                 .orElseThrow(() -> new RuntimeException("Alérgeno no encontrado: " + alergenoDTO.getNombre()));
@@ -140,7 +136,6 @@ public class MateriasPrimasServiceImpl implements MateriasPrimasService {
             repositorioRelAlergeno.save(relAlergeno);
         }
 
-        // 5. Guardar ingredientes
         for (MateriaPrimaCompletaDTO.IngredienteDTO ingDto : dto.getIngredientes()) {
             modeloIngredientes ingrediente = servicioIngredientes.findByNombre(ingDto.getNombre());
 
@@ -273,7 +268,6 @@ public class MateriasPrimasServiceImpl implements MateriasPrimasService {
             repositorioRelAlergeno.save(relAlergeno);
         }
 
-        // Ingredientes
         repositorioRelIngredientes.deleteByMateriaPrima_Id(materia.getId());
 
         for (MateriaPrimaCompletaDTO.IngredienteDTO ingDTO : dto.getIngredientes()) {

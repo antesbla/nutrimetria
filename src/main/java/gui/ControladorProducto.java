@@ -306,12 +306,9 @@ public class ControladorProducto implements Initializable{
 	            servicioRelMateria.save(rel);
 	        }
 	        
-	     // Eliminar relaciones anteriores
 	        servicioRelConsejo.eliminarRelacionesPorProducto(mp.getId());
 
-	        // Recorrer consejos actuales
 	        for (String textoConsejo : listaConsejos.getItems()) {
-	            // Buscar consejo existente o crear uno nuevo
 	            modeloConsejo consejo = servicioConsejos.findByConsejo(textoConsejo.trim());
 	            if (consejo == null) {
 	                consejo = new modeloConsejo();
@@ -319,7 +316,6 @@ public class ControladorProducto implements Initializable{
 	                consejo = servicioConsejos.save(consejo);
 	            }
 
-	            // Crear relación
 	            RelConsejoId relId = new RelConsejoId();
 	            relId.setProducto(mp.getId());
 	            relId.setConsejo(consejo.getId());
@@ -336,8 +332,7 @@ public class ControladorProducto implements Initializable{
 	        mostrarAdvertencia(esNuevo ? "Producto guardado correctamente." : "Producto modificado correctamente.");
 	        rellenarTabla();
 	        formAggProd.setVisible(false);
-	        productoEnEdicion = null; // limpiamos estado
-
+	        productoEnEdicion = null;
 	    } catch (Exception e) {
 	        mostrarAdvertencia("Error al guardar el producto: " + e.getMessage());
 	        e.printStackTrace();
@@ -370,16 +365,13 @@ public class ControladorProducto implements Initializable{
 	        return;
 	    }
 	    
-	    // Limpiar consejos anteriores
 	    listaConsejos.getItems().clear();
 
-	    // Cargar relaciones desde BBDD
 	    List<modeloRelConsejo> relacionesConsejos = servicioRelConsejo.findByProductoId(producto.getId());
 
 	    for (modeloRelConsejo rel : relacionesConsejos) {
 	        listaConsejos.getItems().add(rel.getConsejo().getConsejo());
 
-	        // Para evitar duplicados en el combo
 	        consejos.getItems().removeIf(c -> c.getId() == rel.getConsejo().getId());
 	    }
 

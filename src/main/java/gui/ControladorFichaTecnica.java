@@ -200,7 +200,6 @@ public class ControladorFichaTecnica implements Initializable{
                  }
              }
 
-             // Al final, establece el texto en el label:
              labelMateriasOrdenadas.setText(sb.toString());
 
 
@@ -248,25 +247,22 @@ public class ControladorFichaTecnica implements Initializable{
     @FXML
     private void exportarFichaTecnica(){
         try {
-            // Abrir FileChooser
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Guardar PDF");
             fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Archivo PDF", "*.pdf"));
             
             fileChooser.setInitialFileName(nombreArchivo);
 
-            // Obtener ventana actual desde cualquier GridPane
             Stage stage = (Stage) gridPaneFichaTecnica.getScene().getWindow();
             File selectedFile = fileChooser.showSaveDialog(stage);
             if (selectedFile == null) {
-                return; // Usuario canceló
+                return; 
             }
 
             double scaleFactor = 3.0;
             SnapshotParameters params = new SnapshotParameters();
             params.setTransform(javafx.scene.transform.Transform.scale(scaleFactor, scaleFactor));
 
-            // Snapshot de los dos GridPane
             WritableImage highResImage1 = new WritableImage(
                 (int) ((gridPaneFichaTecnica.getWidth() + 20) * scaleFactor),
                 (int) ((gridPaneFichaTecnica.getHeight() + 20) * scaleFactor)
@@ -279,7 +275,6 @@ public class ControladorFichaTecnica implements Initializable{
             );
             gridPaneFichaTecnica2.snapshot(params, highResImage2);
 
-            // Convertir imágenes a bytes en memoria
             ByteArrayOutputStream outputStream1 = new ByteArrayOutputStream();
             ImageIO.write(SwingFXUtils.fromFXImage(highResImage1, null), "png", outputStream1);
             byte[] imageBytes1 = outputStream1.toByteArray();
@@ -288,7 +283,6 @@ public class ControladorFichaTecnica implements Initializable{
             ImageIO.write(SwingFXUtils.fromFXImage(highResImage2, null), "png", outputStream2);
             byte[] imageBytes2 = outputStream2.toByteArray();
 
-            // Crear PDF en la ubicación seleccionada
             PdfWriter writer = new PdfWriter(selectedFile.getAbsolutePath());
             PdfDocument pdf = new PdfDocument(writer);
             Document document = new Document(pdf);
@@ -556,16 +550,13 @@ public class ControladorFichaTecnica implements Initializable{
             Label label = (Label) event.getSource();
             String campoBaseDatos = obtenerCampoBaseDatos(label);
 
-            // Crear un nuevo diálogo personalizado
             Dialog<String> dialog = new Dialog<>();
             dialog.setTitle("Editar campo");
             String nombreVisible = obtenerNombreCampo(campoBaseDatos);
             dialog.setHeaderText("Modificar " + nombreVisible);
 
-            // Crear los botones OK y CANCEL
             dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
 
-            // Crear un TextArea grande y con el texto actual del label
             TextArea textArea = new TextArea(label.getText());
             textArea.setWrapText(true);
             textArea.setPrefWidth(400);
@@ -579,7 +570,6 @@ public class ControladorFichaTecnica implements Initializable{
             .setStyle("-fx-background-color: #F9E9D0;");
 
             
-            // Convertir el resultado del botón OK en el nuevo texto
             dialog.setResultConverter(dialogButton -> {
                 if (dialogButton == ButtonType.OK) {
                     return textArea.getText();

@@ -25,7 +25,6 @@ public class UsuarioDetalleDTO implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // No usar roles de texto. Devuelve colección vacía si no usas Spring para control de roles.
         return Collections.emptyList();
     }
 

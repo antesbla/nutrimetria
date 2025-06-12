@@ -46,7 +46,6 @@ public class modeloRelProveedor {
     @Column(name = "precio")
     private double precio;
 
-    // Getters y Setters
     public RelProveedorId getId() {
         return id;
     }
