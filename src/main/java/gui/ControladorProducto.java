@@ -15,7 +15,6 @@ import com.java.DTO.MateriasProveedorRelProvDTO;
 import com.java.model.RelConsejoId;
 import com.java.model.RelMateriaId;
 import com.java.model.modeloConsejo;
-import com.java.model.modeloIngredientes;
 import com.java.model.modeloMateriasPrimas;
 import com.java.model.modeloProducto;
 import com.java.model.modeloProveedor;
@@ -43,6 +42,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -77,6 +77,7 @@ public class ControladorProducto implements Initializable{
 	@FXML private ListView<MateriaCantidadDTO> listaMateriasPrimas;
 	@FXML private ListView<String> listaConsejos;
 	
+    @FXML private AnchorPane root;
 	@FXML private Label txtAlerta;
 	
 	@FXML private CheckBox checkNuevoConsejo;
@@ -95,7 +96,8 @@ public class ControladorProducto implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		rellenarTabla();
-		
+		String css = getClass().getResource("/css/materiaPrimaCSS.css").toExternalForm();
+		root.getStylesheets().add(css);
 		List<MateriasProveedorRelProvDTO> cons = servicioMaterias.datosMatP();
 	    materias.setItems(FXCollections.observableArrayList(cons));
 	    

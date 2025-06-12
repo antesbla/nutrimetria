@@ -8,7 +8,6 @@ import com.java.repository.ConsejoRepository;
 import com.java.service.ConsejoService;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ConsejoServiceImpl implements ConsejoService {

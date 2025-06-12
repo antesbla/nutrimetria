@@ -23,6 +23,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -36,13 +37,15 @@ public class ControladorProveedor implements Initializable{
 	@FXML private TableColumn<modeloProveedor, String> colEmail;
 	@FXML private TableColumn<modeloProveedor, String> colDireccion;
 	@FXML private TextField campoBusqueda;
-	
+    @FXML private AnchorPane root;
+
 	@Autowired private ProveedorServiceImpl servicioProveedor;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 	    rellenarTabla();
-
+		String css = getClass().getResource("/css/materiaPrimaCSS.css").toExternalForm();
+		root.getStylesheets().add(css);
 	    campoBusqueda.textProperty().addListener((obs, oldText, newText) -> {
 	        filtrarProveedores(newText);
 	    });

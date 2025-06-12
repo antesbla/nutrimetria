@@ -40,7 +40,7 @@ public class JavaFxApp extends Application {
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader loader = new FXMLLoader(JavaFxApp.class.getResource("/Vista/" + fxml + ".fxml"));
-        loader.setControllerFactory(context::getBean); // ✅ ya no da error
+        loader.setControllerFactory(context::getBean);
         return loader.load();
     }
 

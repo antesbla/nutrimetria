@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="860.0" prefWidth="1535.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ControladorProducto">
+<AnchorPane fx:id="root" prefHeight="860.0" prefWidth="1535.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ControladorProducto">
    <children>
       <Pane layoutX="14.0" layoutY="63.0" prefHeight="781.0" prefWidth="1501.0" style="-fx-background-color: F9E9D0; -fx-border-color: E5A743; -fx-border-width: 2; -fx-border-radius: 0; -fx-background-radius: 10 10 0 0;">
          <children>
@@ -29,17 +29,17 @@
             </TextField>
             <TableView fx:id="tablaProductos" layoutX="16.0" layoutY="73.0" prefHeight="695.0" prefWidth="1469.0" style="-fx-background-color: white; -fx-border-color: E5A743; -fx-border-width: 2; -fx-padding: 0;">
               <columns>
-                <TableColumn id="cod_prod" fx:id="colCodProd" prefWidth="158.0" resizable="false" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" text="Código Producto" />
-                  <TableColumn id="nombre" fx:id="colNombreProd" prefWidth="82.0" resizable="false" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" text="Nombre" />
-                  <TableColumn id="peso" fx:id="colPeso" minWidth="0.0" prefWidth="64.0" resizable="false" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" text="Peso" />
-                  <TableColumn id="cat_legal" fx:id="colCatLegal" prefWidth="155.0" resizable="false" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" text="Categoría Legal" />
-                  <TableColumn id="durabilidad" fx:id="colDurabilidad" prefWidth="115.0" resizable="false" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" text="Durabilidad" />
-                  <TableColumn id="transporte" fx:id="colTransporte" prefWidth="106.0" resizable="false" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" text="Transporte" />
-                  <TableColumn id="almacenamiento" fx:id="colCondAlmac" prefWidth="153.0" resizable="false" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" text="Almacenamiento" />
-                  <TableColumn id="composicion" fx:id="colComposicion" prefWidth="121.0" resizable="false" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" text="Composición" />
-                  <TableColumn id="unidadcaja" fx:id="colUnidadCaja" prefWidth="114.0" resizable="false" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" styleClass="proteinas" text="Unidad/Caja" />
-                  <TableColumn id="pesocaja" fx:id="colPesoCaja" prefWidth="98.0" resizable="false" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" styleClass="sal" text="Peso/Caja" />
-                  <TableColumn id="cod_barras" fx:id="colIngredientes" prefWidth="299.0" resizable="false" style="-fx-background-color: F2D3A1; -fx-border-color: E5A743; -fx-border-width: 1; -fx-font-size: 18;" styleClass="fibra" text="Ingredientes" />
+                <TableColumn id="cod_prod" fx:id="colCodProd" prefWidth="103.99999618530273" resizable="false" text="Código Producto" />
+                  <TableColumn id="nombre" fx:id="colNombreProd" prefWidth="103.99993896484375" resizable="false" text="Nombre" />
+                  <TableColumn id="peso" fx:id="colPeso" minWidth="0.0" prefWidth="70.39997863769531" resizable="false" text="Peso" />
+                  <TableColumn id="cat_legal" fx:id="colCatLegal" prefWidth="151.20001220703125" resizable="false" text="Categoría Legal" />
+                  <TableColumn id="durabilidad" fx:id="colDurabilidad" prefWidth="108.79998779296875" resizable="false" text="Durabilidad" />
+                  <TableColumn id="transporte" fx:id="colTransporte" prefWidth="117.5999755859375" resizable="false" text="Transporte" />
+                  <TableColumn id="almacenamiento" fx:id="colCondAlmac" prefWidth="146.39990234375" resizable="false" text="Almacenamiento" />
+                  <TableColumn id="composicion" fx:id="colComposicion" prefWidth="154.4000244140625" resizable="false" text="Composición" />
+                  <TableColumn id="unidadcaja" fx:id="colUnidadCaja" prefWidth="119.99993896484375" resizable="false" styleClass="proteinas" text="Unidad/Caja" />
+                  <TableColumn id="pesocaja" fx:id="colPesoCaja" prefWidth="98.0" resizable="false" styleClass="sal" text="Peso/Caja" />
+                  <TableColumn id="cod_barras" fx:id="colIngredientes" prefWidth="299.0" resizable="false" styleClass="fibra" text="Ingredientes" />
               </columns>
             </TableView>
             <Button layoutX="876.0" layoutY="19.0" mnemonicParsing="false" onMouseClicked="#formularioAgg" prefHeight="34.0" prefWidth="188.0" style="-fx-border-color: E5A743; -fx-border-radius: 7; -fx-background-radius: 8; -fx-border-width: 0 0 2 0; -fx-background-color: F2D3A1;" text="Agregar Producto">
@@ -111,7 +111,7 @@
             </Button>
          </children>
       </Pane>
-      <GridPane fx:id="formAggProd" layoutX="300.0" layoutY="130.0" style="-fx-background-color: F9E9D0; -fx-border-color: E5A743; -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;">
+      <GridPane fx:id="formAggProd" layoutX="300.0" layoutY="130.0" style="-fx-background-color: F9E9D0; -fx-border-color: E5A743; -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;" visible="false">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="25.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
